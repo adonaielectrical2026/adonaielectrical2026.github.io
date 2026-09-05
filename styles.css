@@ -1888,11 +1888,11 @@ html[data-theme="dark"] .preloader-bar-fill {
   overflow: hidden;
 }
 
-/* Habilitación ante UTE, en el pie: es la señal de confianza más fuerte que
-   tiene la empresa, así que va destacada y no perdida entre el texto legal. */
+/* Habilitación ante UTE: franja propia a lo ancho del pie, arriba de la barra
+   inferior. Sacarla de la columna de marca empareja las cuatro columnas. */
 .footer-credential {
   display: inline-block;
-  margin: 16px 0 0;
+  margin: 30px 0 0;
   padding: 8px 14px;
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
@@ -1996,11 +1996,125 @@ html[data-theme="dark"] .founder-profile { border-top-color: #2a2b2f; }
 html[data-theme="dark"] .founder-profile__photo { background: #141518; border-color: #2a2b2f; }
 html[data-theme="dark"] .founder-profile__bio p { color: #a9abb1; }
 
-.footer-rut {
-  margin: 10px 0 0;
-  color: #85878c;
-  font-size: 0.76rem;
-  letter-spacing: 0.04em;
+/* =========================================================
+   VENTANAS EMERGENTES
+   Misma tipografía que los diálogos de Nosotros (Misión y Visión), y el
+   contenido acomodado para que entre sin tener que deslizar.
+   ========================================================= */
+
+/* Legal y servicios heredan la lectura de la Carta del Fundador */
+#legal-content p,
+.service-dialog__intro,
+.service-detail p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--graphite);
+}
+
+html[data-theme="dark"] #legal-content p,
+html[data-theme="dark"] .service-dialog__intro,
+html[data-theme="dark"] .service-detail p { color: #a9abb1; }
+
+/* Cada texto legal en su ventana, en una sola columna y con la misma medida de
+   línea que Misión y Visión: entra completo, sin deslizar. */
+.legal-columns {
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  .legal-dialog { max-height: 92vh; }
+  #legal-content { padding-bottom: 24px; }
+  #legal-content p { margin-bottom: 18px; }
+}
+
+/* En notebooks de pantalla baja la línea se ensancha y los párrafos se juntan un
+   poco: el texto sigue en el mismo cuerpo que Misión y Visión, solo cambia el
+   ancho de línea, y así entra completo sin deslizar. */
+@media (min-width: 900px) and (max-height: 810px) {
+  .legal-columns { max-width: 100%; }
+  #legal-content p { margin-bottom: 14px; }
+}
+
+/* La galería de servicios ocupaba casi 700 px de alto; se acota a la pantalla
+   para que la ficha del servicio entre entera. */
+#service-media-stage {
+  max-height: clamp(180px, 29vh, 420px);
+}
+
+.service-dialog__intro { margin-bottom: 16px; }
+
+.service-dialog__body { padding: 18px 20px 22px; }
+
+@media (min-width: 1024px) {
+  .service-dialog__layout { gap: 24px; }
+}
+
+/* --- Pie en cuatro columnas: la de contacto llena el vacío de la derecha --- */
+@media (min-width: 760px) {
+  .footer-grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 0.8fr) minmax(0, 0.9fr);
+    gap: 28px;
+  }
+}
+
+.footer-contact {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.footer-contact li {
+  color: #a9abb1;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.footer-contact a {
+  color: #a9abb1;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.footer-contact a:hover,
+.footer-contact a:focus-visible { color: #ffffff; }
+
+.footer-bottom__right { color: #85878c; }
+
+/* --- Contacto: que la sección entre en una pantalla y los bordes coincidan --- */
+@media (min-width: 760px) {
+  #contacto.section { padding: 44px 0; }
+}
+
+.contact-details { margin-top: 18px; gap: 10px; }
+
+.contact-item {
+  grid-template-columns: 48px minmax(0, 1fr);
+  padding: 10px 12px;
+  gap: 12px;
+}
+
+.contact-item__icon { width: 48px; height: 48px; }
+
+.contact-hours {
+  margin-top: 14px;
+  padding: 14px 18px;
+}
+
+.contact-hours__title { margin-bottom: 10px; }
+.contact-hours__row { margin-bottom: 6px; font-size: 0.9rem; }
+
+.contact-hours__emergency {
+  margin-top: 11px;
+  padding-top: 11px;
+  font-size: 0.84rem;
+}
+
+@media (min-width: 1024px) {
+  #contacto .lead { margin-bottom: 0; }
 }
 
 /* Horarios de atención, debajo de los datos de contacto */
