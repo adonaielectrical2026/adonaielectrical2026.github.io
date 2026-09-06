@@ -1,25 +1,16 @@
 {
-  "name": "ADONAI ELECTRICAL",
-  "short_name": "ADONAI",
-  "description": "Instalaciones eléctricas residenciales e industriales en Salto, Uruguay.",
-  "start_url": "./",
+  "name": "Mis Finanzas",
+  "short_name": "Mis Finanzas",
+  "description": "Control de ingresos, egresos y presupuesto en pesos uruguayos.",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0b0b0c",
-  "theme_color": "#111111",
-  "lang": "es-UY",
+  "orientation": "any",
+  "background_color": "#F3F1EC",
+  "theme_color": "#17212E",
   "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    }
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
