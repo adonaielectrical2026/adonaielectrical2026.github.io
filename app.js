@@ -889,9 +889,11 @@
         "Email (opcional)": "Email (optional)",
         "099 123 456": "099 123 456",
         "No completar": "Do not fill in",
-        "Enviar por WhatsApp": "Send via WhatsApp",
-        "Se abrirá WhatsApp con tu consulta lista para enviar.": "WhatsApp will open with your message ready to send.",
-        "Abriendo WhatsApp con tu consulta…": "Opening WhatsApp with your message…",
+        "Enviar consulta": "Send inquiry",
+        "Tu consulta se enviará directamente a ADONAI ELECTRICAL. También puedes escribirnos por WhatsApp.": "Your inquiry will be sent directly to ADONAI ELECTRICAL. You can also contact us via WhatsApp.",
+        "Consulta enviada. Nos pondremos en contacto contigo pronto.": "Inquiry sent. We will contact you soon.",
+        "No pudimos enviar la consulta. Inténtalo nuevamente o escríbenos por WhatsApp.": "We could not send the inquiry. Please try again or contact us via WhatsApp.",
+        "Enviando consulta…": "Sending inquiry…",
         "Nueva consulta desde la web": "New inquiry from the website",
         "Horarios de atención": "Opening hours",
         "Lunes a viernes": "Monday to Friday",
@@ -911,7 +913,8 @@
         "Humildad": "Humility",
         "Técnico Instalador · Categoría C ante UTE": "Installer Technician · UTE Category C",
         "Trabaja en electricidad desde hace diez años, en mantenimientos, emergencias e instalaciones nuevas. Se formó en UTU y hace dos años fundó ADONAI ELECTRICAL, convencido de que el trabajo bien hecho transforma vidas.": "He has worked in the electrical trade for ten years, on maintenance, emergencies and new installations. He trained at UTU and, two years ago, founded ADONAI ELECTRICAL, convinced that work done well changes lives.",
-        "La mayor parte de su trabajo son instalaciones residenciales y modificaciones sobre instalaciones existentes; también ejecutó la instalación eléctrica del salón de fiestas SHEKINA La Morada. UTE lo autoriza como Técnico Instalador Categoría C y ADONAI ELECTRICAL está registrada ante el organismo como Firma Instaladora.": "Most of his work involves residential installations and alterations to existing ones; he also carried out the electrical installation of the SHEKINA La Morada events venue. UTE authorises him as a Category C Installer Technician and ADONAI ELECTRICAL is registered with the utility as an installation firm.",
+        "Cuenta con diez años de experiencia en trabajos eléctricos, incluyendo mantenimientos, emergencias e instalaciones nuevas. Se formó en UTU y hace dos años fundó ADONAI ELECTRICAL, convencido de que el trabajo bien hecho puede transformar vidas.": "He has ten years of experience in electrical work, including maintenance, emergencies and new installations. He trained at UTU and founded ADONAI ELECTRICAL two years ago, convinced that work done well can transform lives.",
+        "Su trabajo se concentra principalmente en instalaciones residenciales y modificaciones de instalaciones existentes. También ha realizado proyectos eléctricos para espacios comerciales y salones de eventos. Está habilitado por UTE como Técnico Instalador Categoría C, y ADONAI ELECTRICAL se encuentra registrada ante el organismo como Firma Instaladora.": "His work focuses mainly on residential installations and modifications to existing installations. He has also completed electrical projects for commercial spaces and event venues. He is authorised by UTE as a Category C Installer Technician, and ADONAI ELECTRICAL is registered with the utility as an installation firm.",
         "Es de Salto, casado y padre de dos hijas.": "He is from Salto, married and the father of two daughters.",
         "Política de privacidad": "Privacy policy",
         "Responsable: ADONAI ELECTRICAL, RUT 220020810013, Av. Defensa 1599, Salto, Uruguay. Contacto: adonaielectrical2026@gmail.com.": "Data controller: ADONAI ELECTRICAL, tax ID 220020810013, Av. Defensa 1599, Salto, Uruguay. Contact: adonaielectrical2026@gmail.com.",
@@ -934,9 +937,11 @@
         "Email (opcional)": "E-mail (opcional)",
         "099 123 456": "099 123 456",
         "No completar": "Não preencher",
-        "Enviar por WhatsApp": "Enviar pelo WhatsApp",
-        "Se abrirá WhatsApp con tu consulta lista para enviar.": "O WhatsApp vai abrir com sua mensagem pronta para enviar.",
-        "Abriendo WhatsApp con tu consulta…": "Abrindo o WhatsApp com sua mensagem…",
+        "Enviar consulta": "Enviar consulta",
+        "Tu consulta se enviará directamente a ADONAI ELECTRICAL. También puedes escribirnos por WhatsApp.": "Sua consulta será enviada diretamente à ADONAI ELECTRICAL. Você também pode falar conosco pelo WhatsApp.",
+        "Consulta enviada. Nos pondremos en contacto contigo pronto.": "Consulta enviada. Entraremos em contato em breve.",
+        "No pudimos enviar la consulta. Inténtalo nuevamente o escríbenos por WhatsApp.": "Não foi possível enviar a consulta. Tente novamente ou fale conosco pelo WhatsApp.",
+        "Enviando consulta…": "Enviando consulta…",
         "Nueva consulta desde la web": "Nova consulta pelo site",
         "Horarios de atención": "Horário de atendimento",
         "Lunes a viernes": "Segunda a sexta",
@@ -956,7 +961,8 @@
         "Humildad": "Humildade",
         "Técnico Instalador · Categoría C ante UTE": "Técnico Instalador · Categoria C perante a UTE",
         "Trabaja en electricidad desde hace diez años, en mantenimientos, emergencias e instalaciones nuevas. Se formó en UTU y hace dos años fundó ADONAI ELECTRICAL, convencido de que el trabajo bien hecho transforma vidas.": "Trabalha com eletricidade há dez anos, em manutenções, emergências e instalações novas. Formou-se na UTU e há dois anos fundou a ADONAI ELECTRICAL, convencido de que o trabalho bem feito transforma vidas.",
-        "La mayor parte de su trabajo son instalaciones residenciales y modificaciones sobre instalaciones existentes; también ejecutó la instalación eléctrica del salón de fiestas SHEKINA La Morada. UTE lo autoriza como Técnico Instalador Categoría C y ADONAI ELECTRICAL está registrada ante el organismo como Firma Instaladora.": "A maior parte do seu trabalho são instalações residenciais e modificações em instalações existentes; também executou a instalação elétrica do salão de festas SHEKINA La Morada. A UTE o autoriza como Técnico Instalador Categoria C e a ADONAI ELECTRICAL está registrada no órgão como Empresa Instaladora.",
+        "Cuenta con diez años de experiencia en trabajos eléctricos, incluyendo mantenimientos, emergencias e instalaciones nuevas. Se formó en UTU y hace dos años fundó ADONAI ELECTRICAL, convencido de que el trabajo bien hecho puede transformar vidas.": "Ele tem dez anos de experiência em trabalhos elétricos, incluindo manutenções, emergências e novas instalações. Formou-se na UTU e fundou a ADONAI ELECTRICAL há dois anos, convencido de que um trabalho bem feito pode transformar vidas.",
+        "Su trabajo se concentra principalmente en instalaciones residenciales y modificaciones de instalaciones existentes. También ha realizado proyectos eléctricos para espacios comerciales y salones de eventos. Está habilitado por UTE como Técnico Instalador Categoría C, y ADONAI ELECTRICAL se encuentra registrada ante el organismo como Firma Instaladora.": "Seu trabalho se concentra principalmente em instalações residenciais e modificações de instalações existentes. Também realizou projetos elétricos para espaços comerciais e salões de eventos. É autorizado pela UTE como Técnico Instalador Categoria C, e a ADONAI ELECTRICAL está registrada no órgão como Empresa Instaladora.",
         "Es de Salto, casado y padre de dos hijas.": "É de Salto, casado e pai de duas filhas.",
         "Política de privacidad": "Política de privacidade",
         "Responsable: ADONAI ELECTRICAL, RUT 220020810013, Av. Defensa 1599, Salto, Uruguay. Contacto: adonaielectrical2026@gmail.com.": "Responsável: ADONAI ELECTRICAL, RUT 220020810013, Av. Defensa 1599, Salto, Uruguai. Contato: adonaielectrical2026@gmail.com.",
@@ -1239,7 +1245,7 @@
       const form = document.getElementById('contact-form');
       const formStatus = document.getElementById('form-status');
 
-      form.addEventListener('submit', event => {
+      form.addEventListener('submit', async event => {
         event.preventDefault();
 
         /* Campo trampa: si viene completo es un bot, se descarta en silencio. */
@@ -1251,21 +1257,28 @@
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
 
-        const lines = [
-          translateLiteral('Nueva consulta desde la web'),
-          '',
-          translateLiteral('Nombre') + ': ' + name,
-          translateLiteral('Teléfono') + ': ' + phone
-        ];
-        if (email) lines.push('Email: ' + email);
-        lines.push('', translateLiteral('Consulta') + ':', message);
+        const submitButton = form.querySelector('button[type="submit"]');
+        const data = new FormData(form);
+        data.set('_subject', 'Nueva consulta desde la web — ADONAI ELECTRICAL');
+        data.set('_template', 'table');
+        data.set('_captcha', 'false');
+        formStatus.textContent = 'Enviando consulta…';
+        if (submitButton) submitButton.disabled = true;
 
-        formStatus.textContent = translateLiteral('Abriendo WhatsApp con tu consulta…');
-        window.open(
-          'https://wa.me/59898152423?text=' + encodeURIComponent(lines.join('\n')),
-          '_blank',
-          'noopener'
-        );
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { Accept: 'application/json' }
+          });
+          if (!response.ok) throw new Error('FormSubmit error');
+          form.reset();
+          formStatus.textContent = translateLiteral('Consulta enviada. Nos pondremos en contacto contigo pronto.');
+        } catch (error) {
+          formStatus.textContent = translateLiteral('No pudimos enviar la consulta. Inténtalo nuevamente o escríbenos por WhatsApp.');
+        } finally {
+          if (submitButton) submitButton.disabled = false;
+        }
       });
 
       /* Modales Misión y Visión */
