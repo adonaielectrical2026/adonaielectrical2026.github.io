@@ -190,7 +190,9 @@
         Object.assign(assetLibrary, JSON.parse(byId('emergency-lighting-asset').textContent));
       }
       if (!assetLibrary[id]) throw new Error('Recurso multimedia no disponible');
-      return assetLibrary[id];
+      const path = assetLibrary[id];
+      /* En páginas generadas como /en/ los recursos siguen viviendo en la raíz del sitio. */
+      return document.documentElement.dataset.staticLang ? '/' + path : path;
     }
 
     function clearMedia() {
@@ -1000,6 +1002,10 @@
       const translatableAttributes = [];
       const languageAttributeNames = ['aria-label', 'title', 'placeholder'];
 
+      /* Presente solo en páginas generadas por build-lang.js (p. ej. /en/), donde
+         el HTML ya viene traducido de fábrica y no hay que recorrer el DOM. */
+      const staticLang = document.documentElement.dataset.staticLang || null;
+
       function translateLiteral(text) {
         if (currentLanguage === 'es') return text;
         return translations[currentLanguage]?.[text] || text;
@@ -1035,19 +1041,21 @@
         window.adonaiTranslate = translateLiteral;
         document.documentElement.lang = currentLanguage === 'es' ? 'es-UY' : currentLanguage === 'pt' ? 'pt-BR' : 'en';
 
-        translatableTextNodes.forEach(item => {
-          const trimmed = item.original.trim();
-          const start = item.original.indexOf(trimmed);
-          item.node.nodeValue = item.original.slice(0, start) + translateLiteral(trimmed) + item.original.slice(start + trimmed.length);
-        });
+        if (!staticLang) {
+          translatableTextNodes.forEach(item => {
+            const trimmed = item.original.trim();
+            const start = item.original.indexOf(trimmed);
+            item.node.nodeValue = item.original.slice(0, start) + translateLiteral(trimmed) + item.original.slice(start + trimmed.length);
+          });
 
-        translatableAttributes.forEach(item => {
-          item.element.setAttribute(item.name, translateLiteral(item.original));
-        });
+          translatableAttributes.forEach(item => {
+            item.element.setAttribute(item.name, translateLiteral(item.original));
+          });
 
-        const metadata = pageMetadata[currentLanguage];
-        document.title = metadata.title;
-        document.querySelector('meta[name="description"]').setAttribute('content', metadata.description);
+          const metadata = pageMetadata[currentLanguage];
+          document.title = metadata.title;
+          document.querySelector('meta[name="description"]').setAttribute('content', metadata.description);
+        }
         document.getElementById('language-select').value = currentLanguage;
         const whatsappFloat = document.querySelector('.whatsapp-float');
         if (whatsappFloat) {
@@ -1086,11 +1094,18 @@
         cloneBrandMark(card, 'service-card__watermark', 'service-' + index);
       });
 
-      collectTranslatableContent();
-      let initialLanguage = 'es';
-      try { initialLanguage = localStorage.getItem('adonai-language') || 'es'; } catch (error) {}
+      let initialLanguage = staticLang || 'es';
+      if (!staticLang) {
+        collectTranslatableContent();
+        try { initialLanguage = localStorage.getItem('adonai-language') || 'es'; } catch (error) {}
+      }
       applyLanguage(initialLanguage);
       document.getElementById('language-select').addEventListener('change', event => {
+        if (staticLang) {
+          if (event.target.value === 'es') window.location.href = '/';
+          else event.target.value = staticLang;
+          return;
+        }
         applyLanguage(event.target.value, true);
       });
 
