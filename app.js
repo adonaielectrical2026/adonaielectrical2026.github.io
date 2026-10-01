@@ -177,6 +177,7 @@
     const mediaStatus = byId('service-media-status');
     let assetLibrary;
     let activeService;
+    let activeServiceKey = '';
     let activeIndex = 0;
     let trigger;
     let focusContactOnClose = false;
@@ -313,11 +314,17 @@
         clearMedia();
         thumbnails.replaceChildren();
       }
+
+      const whatsappText = document.documentElement.lang.startsWith('en')
+        ? `Hello ADONAI ELECTRICAL, I would like to request a quote for ${tr(activeService.title)}.`
+        : `Hola ADONAI ELECTRICAL, quisiera solicitar una cotización para ${activeService.title}.`;
+      byId('service-dialog-whatsapp').href = 'https://wa.me/59898152423?text=' + encodeURIComponent(whatsappText);
     }
 
     function openService(key, button) {
       activeService = services[key];
       if (!activeService) return;
+      activeServiceKey = key;
       trigger = button;
       focusContactOnClose = false;
       renderActiveService();
@@ -372,6 +379,11 @@
     });
     byId('service-dialog-contact').addEventListener('click', event => {
       event.preventDefault();
+      const serviceSelect = byId('service');
+      if (serviceSelect && activeServiceKey) {
+        serviceSelect.value = activeServiceKey;
+        serviceSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      }
       focusContactOnClose = true;
       dialog.close();
     });
@@ -402,6 +414,8 @@
           "Servicios": "Services",
           "Contacto": "Contact",
           "Solicitar cotización": "Request a quote",
+          "Solicitar cotización de este servicio": "Request a quote for this service",
+          "Consultar por WhatsApp": "Contact us on WhatsApp",
           "Abrir ubicación de ADONAI ELECTRICAL en Google Maps": "Open ADONAI ELECTRICAL location in Google Maps",
           "ADONAI ELECTRICAL en Google Maps": "ADONAI ELECTRICAL on Google Maps",
           "Ubicación": "Location",
@@ -639,6 +653,11 @@
         "Vista general de la cámara instalada en la esquina de la vivienda.": "General view of the camera installed on the corner of the house.",
         "Cámara de seguridad instalada en la esquina exterior de una vivienda de pared celeste, junto a una bajada de pluvial.": "Security camera installed on the outside corner of a light-blue house, next to a downspout.",
         "Teléfono": "Phone",
+        "Servicio de interés": "Service required",
+        "Selecciona un servicio": "Select a service",
+        "Otra consulta": "Other inquiry",
+        "Zona o barrio": "Area or neighborhood",
+        "Ej.: Centro, Salto": "E.g. Downtown, Salto",
         "Email": "Email",
         "Email (opcional)": "Email (optional)",
         "nombre@correo.com": "name@email.com",
@@ -672,7 +691,7 @@
         "Su trabajo se concentra principalmente en instalaciones residenciales y modificaciones de instalaciones existentes. También ha realizado proyectos eléctricos para espacios comerciales y salones de eventos. Está habilitado por UTE como Técnico Instalador Categoría C, y ADONAI ELECTRICAL se encuentra registrada ante el organismo como Firma Instaladora.": "His work focuses mainly on residential installations and modifications to existing installations. He has also completed electrical projects for commercial spaces and event venues. He is authorised by UTE as a Category C Installer Technician, and ADONAI ELECTRICAL is registered with the utility as an installation firm.",
         "Política de privacidad": "Privacy policy",
         "Responsable: ADONAI ELECTRICAL, RUT 220020810013, Av. Defensa 1599, Salto, Uruguay. Contacto: adonaielectrical2026@gmail.com.": "Data controller: ADONAI ELECTRICAL, tax ID 220020810013, Av. Defensa 1599, Salto, Uruguay. Contact: adonaielectrical2026@gmail.com.",
-        "Qué pedimos y para qué. Nombre, teléfono, correo si lo dejás y el texto de tu consulta, únicamente para responderte y preparar un presupuesto. No los vendemos, no los cedemos con fines comerciales y no los usamos para publicidad.": "What we ask for and why. Name, phone, your email if you provide it, and your enquiry — only to reply to you and prepare a quote. We do not sell them, share them commercially or use them for advertising.",
+        "Qué pedimos y para qué. Nombre, teléfono, correo si lo dejás, servicio de interés, zona y el texto de tu consulta, únicamente para responderte y preparar un presupuesto. No los vendemos, no los cedemos con fines comerciales y no los usamos para publicidad.": "What we ask for and why. Name, phone, your email if you provide it, service required, area and your enquiry — only to reply to you and prepare a quote. We do not sell them, share them commercially or use them for advertising.",
         "Cómo se envía. El formulario se envía directamente a nuestro correo mediante FormSubmit, un servicio externo que actúa como intermediario de envío. Si preferís, también podés escribirnos por WhatsApp, correo o llamada.": "How it is sent. The form is submitted directly to our inbox through FormSubmit, an external service that acts as a delivery intermediary. If you prefer, you can also reach us via WhatsApp, email or phone.",
         "Qué se guarda. No usamos cookies, analítica ni publicidad; solo quedan en tu equipo el idioma y el tema que elijas. La tipografía se carga desde Google Fonts, por lo que tu IP llega a sus servidores.": "What is stored. We use no cookies, analytics or advertising; only your language and theme choices stay on your own device. The typeface loads from Google Fonts, so your IP reaches its servers.",
         "Tus derechos. Conservamos las consultas mientras dure la relación comercial. La Ley N° 18.331 te permite acceder a tus datos, rectificarlos, actualizarlos y pedir su supresión escribiéndonos; también podés reclamar ante la URCDP.": "Your rights. We keep enquiries for as long as the working relationship lasts. Uruguayan Law No. 18,331 lets you access, correct, update and request deletion of your data by writing to us; you may also complain to the URCDP.",
@@ -956,6 +975,38 @@
       /* Formulario */
       const form = document.getElementById('contact-form');
       const formStatus = document.getElementById('form-status');
+      const serviceSelect = document.getElementById('service');
+      const zoneInput = document.getElementById('zone');
+      const formWhatsapp = document.getElementById('form-whatsapp');
+
+      function selectedServiceLabel() {
+        const option = serviceSelect.options[serviceSelect.selectedIndex];
+        return serviceSelect.value && option ? option.textContent.trim() : '';
+      }
+
+      function updateFormWhatsapp() {
+        const service = selectedServiceLabel();
+        const zone = zoneInput.value.trim();
+        let text;
+        if (currentLanguage === 'en') {
+          text = service
+            ? `Hello ADONAI ELECTRICAL, I would like to request a quote for ${service}${zone ? `. Area: ${zone}` : ''}.`
+            : 'Hello ADONAI ELECTRICAL, I would like to make an inquiry.';
+        } else {
+          text = service
+            ? `Hola ADONAI ELECTRICAL, quisiera solicitar una cotización para ${service}${zone ? `. Zona: ${zone}` : ''}.`
+            : 'Hola ADONAI ELECTRICAL, quisiera realizar una consulta.';
+        }
+        const href = 'https://wa.me/59898152423?text=' + encodeURIComponent(text);
+        formWhatsapp.href = href;
+        const whatsappFloat = document.querySelector('.whatsapp-float');
+        if (whatsappFloat) whatsappFloat.href = href;
+      }
+
+      serviceSelect.addEventListener('change', updateFormWhatsapp);
+      zoneInput.addEventListener('input', updateFormWhatsapp);
+      window.addEventListener('adonai:languagechange', updateFormWhatsapp);
+      updateFormWhatsapp();
 
       form.addEventListener('submit', async event => {
         event.preventDefault();
@@ -985,6 +1036,7 @@
           });
           if (!response.ok) throw new Error('FormSubmit error');
           form.reset();
+          updateFormWhatsapp();
           formStatus.textContent = translateLiteral('Consulta enviada. Nos pondremos en contacto contigo pronto.');
         } catch (error) {
           formStatus.textContent = translateLiteral('No pudimos enviar la consulta. Inténtalo nuevamente o escríbenos por WhatsApp.');
@@ -1049,7 +1101,7 @@
           title: "Política de privacidad",
           paragraphs: [
             "Responsable: ADONAI ELECTRICAL, RUT 220020810013, Av. Defensa 1599, Salto, Uruguay. Contacto: adonaielectrical2026@gmail.com.",
-            "Qué pedimos y para qué. Nombre, teléfono, correo si lo dejás y el texto de tu consulta, únicamente para responderte y preparar un presupuesto. No los vendemos, no los cedemos con fines comerciales y no los usamos para publicidad.",
+            "Qué pedimos y para qué. Nombre, teléfono, correo si lo dejás, servicio de interés, zona y el texto de tu consulta, únicamente para responderte y preparar un presupuesto. No los vendemos, no los cedemos con fines comerciales y no los usamos para publicidad.",
             "Cómo se envía. El formulario se envía directamente a nuestro correo mediante FormSubmit, un servicio externo que actúa como intermediario de envío. Si preferís, también podés escribirnos por WhatsApp, correo o llamada.",
             "Qué se guarda. No usamos cookies, analítica ni publicidad; solo quedan en tu equipo el idioma y el tema que elijas. La tipografía se carga desde Google Fonts, por lo que tu IP llega a sus servidores.",
             "Tus derechos. Conservamos las consultas mientras dure la relación comercial. La Ley N° 18.331 te permite acceder a tus datos, rectificarlos, actualizarlos y pedir su supresión escribiéndonos; también podés reclamar ante la URCDP.",

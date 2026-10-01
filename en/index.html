@@ -580,6 +580,27 @@
             <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="099 123 456" required>
           </div>
 
+          <div class="form-row">
+            <div class="field">
+              <label for="service">Service required</label>
+              <select id="service" name="service" required>
+                <option value="" selected disabled>Select a service</option>
+                <option value="proyectos">New projects</option>
+                <option value="remodelaciones">Remodeling</option>
+                <option value="mantenimiento">Maintenance</option>
+                <option value="emergencias">Electrical emergencies</option>
+                <option value="iluminacion">Emergency lighting</option>
+                <option value="tramites">UTE procedures</option>
+                <option value="camaras">Security camera installation</option>
+                <option value="otro">Other inquiry</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="zone">Area or neighborhood</label>
+              <input id="zone" name="zone" type="text" autocomplete="address-level3" placeholder="E.g. Downtown, Salto" required>
+            </div>
+          </div>
+
           <div class="field">
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Briefly describe the work or your inquiry" required></textarea>
@@ -590,10 +611,16 @@
             <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
           </div>
 
-          <button class="btn btn--dark" type="submit">
-            Send inquiry
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4 20-7Z"/><path d="M22 2 11 13"/></svg>
-          </button>
+          <div class="form-actions">
+            <button class="btn btn--dark" type="submit">
+              Send inquiry
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4 20-7Z"/><path d="M22 2 11 13"/></svg>
+            </button>
+            <a class="btn contact-form__whatsapp" id="form-whatsapp" href="https://wa.me/59898152423?text=Hola%20ADONAI%20ELECTRICAL%2C%20quisiera%20realizar%20una%20consulta." target="_blank" rel="noopener noreferrer">
+              Contact us on WhatsApp
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.4-4.7a8.5 8.5 0 1 1 16.1-4.2Z"/><path d="M8.5 8.2c.4 2.7 2.6 4.8 5.3 5.3"/></svg>
+            </a>
+          </div>
           <p class="form-note">Your inquiry will be sent directly to ADONAI ELECTRICAL. You can also contact us via WhatsApp.</p>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
@@ -688,7 +715,10 @@
           <h3 id="service-detail-title"></h3>
           <div id="service-detail-description"></div>
           <div class="service-detail__scope" id="service-detail-scope"></div>
-          <a class="btn btn--dark" id="service-dialog-contact" href="#contacto">Request a quote <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+          <div class="service-detail__actions">
+            <a class="btn btn--dark" id="service-dialog-contact" href="#contacto">Request a quote for this service <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+            <a class="btn service-detail__whatsapp" id="service-dialog-whatsapp" href="https://wa.me/59898152423" target="_blank" rel="noopener noreferrer">Contact us on WhatsApp</a>
+          </div>
         </section>
       </div>
     </div>

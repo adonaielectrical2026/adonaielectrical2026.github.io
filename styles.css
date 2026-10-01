@@ -974,6 +974,13 @@ html[data-theme="dark"] .theme-toggle .sun-icon { display: block; }
 .service-detail__item { padding: 12px 0; border-top: 1px solid var(--line); font-size: 0.88rem; }
 .service-detail__item:last-child { border-bottom: 1px solid var(--line); }
 .service-detail .btn { width: 100%; }
+.service-detail__actions { display: grid; gap: 10px; }
+.service-detail__whatsapp {
+  color: #ffffff;
+  background: #267a4b;
+  border-color: #267a4b;
+}
+.service-detail__whatsapp:hover { background: #1f6840; border-color: #1f6840; }
 .service-dialog__layout.is-information { max-width: 760px; }
 
 @media (min-width: 760px) {
@@ -1128,7 +1135,7 @@ a.contact-item:hover { border-color: var(--steel); transform: translateX(3px); }
 
 .contact-form .field label { color: var(--dark-panel-text); }
 
-.field input, .field textarea {
+.field input, .field select, .field textarea {
   width: 100%;
   padding: 13px 14px;
   color: var(--black);
@@ -1140,6 +1147,7 @@ a.contact-item:hover { border-color: var(--steel); transform: translateX(3px); }
 }
 
 .contact-form .field input,
+.contact-form .field select,
 .contact-form .field textarea {
   color: var(--dark-panel-text);
   background: #151619;
@@ -1152,16 +1160,18 @@ a.contact-item:hover { border-color: var(--steel); transform: translateX(3px); }
   opacity: 1;
 }
 
-.field input { min-height: 50px; }
+.field input, .field select { min-height: 50px; }
+.field select { cursor: pointer; }
 .field textarea { min-height: 150px; resize: vertical; }
 
-.field input:focus, .field textarea:focus {
+.field input:focus, .field select:focus, .field textarea:focus {
   background: var(--white);
   border-color: var(--steel);
   box-shadow: 0 0 0 4px rgba(111, 114, 119, 0.12);
 }
 
 .contact-form .field input:focus,
+.contact-form .field select:focus,
 .contact-form .field textarea:focus {
   background: #1c1d21;
   border-color: rgba(255, 255, 255, 0.5);
@@ -1169,6 +1179,7 @@ a.contact-item:hover { border-color: var(--steel); transform: translateX(3px); }
 }
 
 .contact-form .btn { width: 100%; }
+.form-actions { display: grid; gap: 10px; }
 
 .contact-form .btn--dark {
   color: #0b0b0c;
@@ -1178,6 +1189,13 @@ a.contact-item:hover { border-color: var(--steel); transform: translateX(3px); }
 }
 
 .contact-form .btn--dark:hover { background: #e7e7e9; }
+
+.contact-form__whatsapp {
+  color: #ffffff;
+  background: #267a4b;
+  border-color: #267a4b;
+}
+.contact-form__whatsapp:hover { background: #1f6840; border-color: #1f6840; }
 
 .form-note {
   margin: 13px 0 0;
@@ -1451,12 +1469,14 @@ a.contact-item:hover { border-color: var(--steel); transform: translateX(3px); }
 
 /* Modo oscuro */
 html[data-theme="dark"] .field input,
+html[data-theme="dark"] .field select,
 html[data-theme="dark"] .field textarea {
   color: #f4f4f5;
   background: #111216;
 }
 
 html[data-theme="dark"] .field input:focus,
+html[data-theme="dark"] .field select:focus,
 html[data-theme="dark"] .field textarea:focus {
   background: #0d0e10;
 }
@@ -1504,6 +1524,7 @@ html[data-theme="dark"] .founder-entry__button:hover,
 html[data-theme="dark"] .contact-form .btn--dark:hover { background: #242529; }
 
 html[data-theme="dark"] .contact-form .field input,
+html[data-theme="dark"] .contact-form .field select,
 html[data-theme="dark"] .contact-form .field textarea {
   color: #0b0b0c;
   background: #ffffff;
@@ -1514,6 +1535,7 @@ html[data-theme="dark"] .contact-form .field input::placeholder,
 html[data-theme="dark"] .contact-form .field textarea::placeholder { color: #77797f; }
 
 html[data-theme="dark"] .contact-form .field input:focus,
+html[data-theme="dark"] .contact-form .field select:focus,
 html[data-theme="dark"] .contact-form .field textarea:focus {
   background: #ffffff;
   border-color: #6f7277;
