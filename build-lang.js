@@ -119,7 +119,7 @@ function translateHtmlBody(html) {
 }
 
 function translateAttributes(html) {
-  return html.replace(/\b(aria-label|title|placeholder)="([^"]*)"/g, (match, attr, value) => {
+  return html.replace(/\b(alt|aria-label|title|placeholder)="([^"]*)"/g, (match, attr, value) => {
     if (!value.trim()) return match;
     return `${attr}="${tr(value)}"`;
   });

@@ -667,6 +667,7 @@
         "Disciplina": "Discipline",
         "Humildad": "Humility",
         "Técnico Instalador · Categoría C ante UTE": "Installer Technician · UTE Category C",
+        "Claudio Rodríguez, fundador de ADONAI ELECTRICAL": "Claudio Rodríguez, founder of ADONAI ELECTRICAL",
         "Cuenta con diez años de experiencia en trabajos eléctricos, incluyendo mantenimientos, emergencias e instalaciones nuevas. Se formó en UTU y hace dos años fundó ADONAI ELECTRICAL, convencido de que el trabajo bien hecho puede transformar vidas.": "He has ten years of experience in electrical work, including maintenance, emergencies and new installations. He trained at UTU and founded ADONAI ELECTRICAL two years ago, convinced that work done well can transform lives.",
         "Su trabajo se concentra principalmente en instalaciones residenciales y modificaciones de instalaciones existentes. También ha realizado proyectos eléctricos para espacios comerciales y salones de eventos. Está habilitado por UTE como Técnico Instalador Categoría C, y ADONAI ELECTRICAL se encuentra registrada ante el organismo como Firma Instaladora.": "His work focuses mainly on residential installations and modifications to existing installations. He has also completed electrical projects for commercial spaces and event venues. He is authorised by UTE as a Category C Installer Technician, and ADONAI ELECTRICAL is registered with the utility as an installation firm.",
         "Política de privacidad": "Privacy policy",
@@ -797,19 +798,17 @@
         cloneBrandMark(card, 'service-card__watermark', 'service-' + index);
       });
 
-      let initialLanguage = staticLang || 'es';
-      if (!staticLang) {
-        collectTranslatableContent();
-        try { initialLanguage = localStorage.getItem('adonai-language') || 'es'; } catch (error) {}
-      }
+      const initialLanguage = staticLang || 'es';
+      if (!staticLang) collectTranslatableContent();
       applyLanguage(initialLanguage);
       document.getElementById('language-select').addEventListener('change', event => {
-        if (staticLang) {
-          if (event.target.value === 'es') window.location.href = '/';
-          else event.target.value = staticLang;
+        const selectedLanguage = event.target.value;
+        if (selectedLanguage !== initialLanguage) {
+          try { localStorage.setItem('adonai-language', selectedLanguage); } catch (error) {}
+          window.location.href = selectedLanguage === 'es' ? '/' : `/${selectedLanguage}/`;
           return;
         }
-        applyLanguage(event.target.value, true);
+        event.target.value = initialLanguage;
       });
 
       /* Modo Claro / Oscuro */
@@ -975,7 +974,7 @@
         data.set('_subject', 'Nueva consulta desde la web — ADONAI ELECTRICAL');
         data.set('_template', 'table');
         data.set('_captcha', 'false');
-        formStatus.textContent = 'Enviando consulta…';
+        formStatus.textContent = translateLiteral('Enviando consulta…');
         if (submitButton) submitButton.disabled = true;
 
         try {
