@@ -2,13 +2,16 @@
   const root = document.documentElement;
   const toggle = document.getElementById('service-theme-toggle');
   const themeColor = document.querySelector('meta[name="theme-color"]');
+  const isEnglish = root.lang.toLowerCase().startsWith('en');
 
   function applyTheme(theme, save = false) {
     const isDark = theme === 'dark';
     root.dataset.theme = isDark ? 'dark' : 'light';
 
     if (toggle) {
-      const label = isDark ? 'Activar modo claro' : 'Activar modo oscuro';
+      const label = isEnglish
+        ? (isDark ? 'Enable light mode' : 'Enable dark mode')
+        : (isDark ? 'Activar modo claro' : 'Activar modo oscuro');
       toggle.setAttribute('aria-pressed', String(isDark));
       toggle.setAttribute('aria-label', label);
       toggle.title = label;

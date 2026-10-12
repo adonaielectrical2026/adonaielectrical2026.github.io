@@ -178,6 +178,18 @@ function build() {
       '"description": "Atención de emergencias eléctricas las 24 horas, todos los días.",',
       '"description": "Electrical emergency response 24 hours a day, every day.",'
     );
+    html = html.replace(
+      'value="Nueva consulta desde la web — ADONAI ELECTRICAL"',
+      'value="New website inquiry — ADONAI ELECTRICAL"'
+    );
+    html = html.replace(
+      'value="Recibimos tu solicitud de cotización en ADONAI ELECTRICAL. Gracias por contactarnos. Revisaremos la información y nos comunicaremos contigo para coordinar los próximos pasos. Este mensaje confirma que tu consulta fue enviada correctamente."',
+      'value="We received your quote request at ADONAI ELECTRICAL. Thank you for contacting us. We will review the information and get in touch to coordinate the next steps. This message confirms that your inquiry was sent successfully."'
+    );
+    html = html.replace(
+      'value="https://adonaielectrical2026.github.io/gracias/"',
+      'value="https://adonaielectrical2026.github.io/en/thanks/"'
+    );
   }
 
   // hreflang: apuntar cada variante a su propia URL, sin duplicar la propia.

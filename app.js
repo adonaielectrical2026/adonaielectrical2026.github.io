@@ -772,12 +772,18 @@
         "Zona o barrio": "Area or neighborhood",
         "Ej.: Centro, Salto": "E.g. Downtown, Salto",
         "Email": "Email",
-        "Email (opcional)": "Email (optional)",
         "nombre@correo.com": "name@email.com",
         "099 123 456": "099 123 456",
         "No completar": "Do not fill in",
         "Enviar consulta": "Send inquiry",
-        "Tu consulta se enviará directamente a ADONAI ELECTRICAL. También puedes escribirnos por WhatsApp.": "Your inquiry will be sent directly to ADONAI ELECTRICAL. You can also contact us via WhatsApp.",
+        "Recibirás una confirmación en el correo ingresado después de enviar la solicitud. También puedes escribirnos por WhatsApp.": "You will receive a confirmation at the email address entered after submitting the request. You can also contact us via WhatsApp.",
+        "Para preparar tu presupuesto": "To prepare your quote",
+        "Tipo de trabajo": "Type of work",
+        "Describe qué necesitas o qué problema observaste.": "Describe what you need or the problem you noticed.",
+        "Ubicación": "Location",
+        "Indica la zona y el tipo de inmueble.": "Tell us the area and type of property.",
+        "Referencias": "References",
+        "Si tienes fotografías o medidas, puedes enviarlas luego por WhatsApp.": "If you have photos or measurements, you can send them later via WhatsApp.",
         "Consulta enviada. Nos pondremos en contacto contigo pronto.": "Inquiry sent. We will contact you soon.",
         "No pudimos enviar la consulta. Inténtalo nuevamente o escríbenos por WhatsApp.": "We could not send the inquiry. Please try again or contact us via WhatsApp.",
         "Enviando consulta…": "Sending inquiry…",
@@ -805,7 +811,7 @@
         "Su trabajo se concentra principalmente en instalaciones residenciales y modificaciones de instalaciones existentes. También ha realizado proyectos eléctricos para espacios comerciales y salones de eventos. Está habilitado por UTE como Técnico Instalador Categoría C, y ADONAI ELECTRICAL se encuentra registrada ante el organismo como Firma Instaladora.": "His work focuses mainly on residential installations and modifications to existing installations. He has also completed electrical projects for commercial spaces and event venues. He is authorised by UTE as a Category C Installer Technician, and ADONAI ELECTRICAL is registered with the utility as an installation firm.",
         "Política de privacidad": "Privacy policy",
         "Responsable: ADONAI ELECTRICAL, RUT 220020810013, Av. Defensa 1599, Salto, Uruguay. Contacto: adonaielectrical2026@gmail.com.": "Data controller: ADONAI ELECTRICAL, tax ID 220020810013, Av. Defensa 1599, Salto, Uruguay. Contact: adonaielectrical2026@gmail.com.",
-        "Qué pedimos y para qué. Nombre, teléfono, correo si lo dejás, servicio de interés, zona y el texto de tu consulta, únicamente para responderte y preparar un presupuesto. No los vendemos, no los cedemos con fines comerciales y no los usamos para publicidad.": "What we ask for and why. Name, phone, your email if you provide it, service required, area and your enquiry — only to reply to you and prepare a quote. We do not sell them, share them commercially or use them for advertising.",
+        "Qué pedimos y para qué. Nombre, teléfono, correo, servicio de interés, zona y el texto de tu consulta, únicamente para responderte y preparar un presupuesto. No los vendemos, no los cedemos con fines comerciales y no los usamos para publicidad.": "What we ask for and why. Name, phone, email, service required, area and your enquiry — only to reply to you and prepare a quote. We do not sell them, share them commercially or use them for advertising.",
         "Cómo se envía. El formulario se envía directamente a nuestro correo mediante FormSubmit, un servicio externo que actúa como intermediario de envío. Si preferís, también podés escribirnos por WhatsApp, correo o llamada.": "How it is sent. The form is submitted directly to our inbox through FormSubmit, an external service that acts as a delivery intermediary. If you prefer, you can also reach us via WhatsApp, email or phone.",
         "Qué se guarda. No usamos cookies, analítica ni publicidad; solo quedan en tu equipo el idioma y el tema que elijas. La tipografía se carga desde Google Fonts, por lo que tu IP llega a sus servidores.": "What is stored. We use no cookies, analytics or advertising; only your language and theme choices stay on your own device. The typeface loads from Google Fonts, so your IP reaches its servers.",
         "Tus derechos. Conservamos las consultas mientras dure la relación comercial. La Ley N° 18.331 te permite acceder a tus datos, rectificarlos, actualizarlos y pedir su supresión escribiéndonos; también podés reclamar ante la URCDP.": "Your rights. We keep enquiries for as long as the working relationship lasts. Uruguayan Law No. 18,331 lets you access, correct, update and request deletion of your data by writing to us; you may also complain to the URCDP.",
@@ -1087,8 +1093,6 @@
       }
 
       /* Formulario */
-      const form = document.getElementById('contact-form');
-      const formStatus = document.getElementById('form-status');
       const serviceSelect = document.getElementById('service');
       const zoneInput = document.getElementById('zone');
       const formWhatsapp = document.getElementById('form-whatsapp');
@@ -1121,43 +1125,6 @@
       zoneInput.addEventListener('input', updateFormWhatsapp);
       window.addEventListener('adonai:languagechange', updateFormWhatsapp);
       updateFormWhatsapp();
-
-      form.addEventListener('submit', async event => {
-        event.preventDefault();
-
-        /* Campo trampa: si viene completo es un bot, se descarta en silencio. */
-        const honeypot = document.getElementById('company');
-        if (honeypot && honeypot.value.trim()) return;
-
-        const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-
-        const submitButton = form.querySelector('button[type="submit"]');
-        const data = new FormData(form);
-        data.set('_subject', 'Nueva consulta desde la web — ADONAI ELECTRICAL');
-        data.set('_template', 'table');
-        data.set('_captcha', 'false');
-        formStatus.textContent = translateLiteral('Enviando consulta…');
-        if (submitButton) submitButton.disabled = true;
-
-        try {
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: data,
-            headers: { Accept: 'application/json' }
-          });
-          if (!response.ok) throw new Error('FormSubmit error');
-          form.reset();
-          updateFormWhatsapp();
-          formStatus.textContent = translateLiteral('Consulta enviada. Nos pondremos en contacto contigo pronto.');
-        } catch (error) {
-          formStatus.textContent = translateLiteral('No pudimos enviar la consulta. Inténtalo nuevamente o escríbenos por WhatsApp.');
-        } finally {
-          if (submitButton) submitButton.disabled = false;
-        }
-      });
 
       /* Modales Misión y Visión */
       const missionDialog = document.getElementById('mission-dialog');
@@ -1215,7 +1182,7 @@
           title: "Política de privacidad",
           paragraphs: [
             "Responsable: ADONAI ELECTRICAL, RUT 220020810013, Av. Defensa 1599, Salto, Uruguay. Contacto: adonaielectrical2026@gmail.com.",
-            "Qué pedimos y para qué. Nombre, teléfono, correo si lo dejás, servicio de interés, zona y el texto de tu consulta, únicamente para responderte y preparar un presupuesto. No los vendemos, no los cedemos con fines comerciales y no los usamos para publicidad.",
+            "Qué pedimos y para qué. Nombre, teléfono, correo, servicio de interés, zona y el texto de tu consulta, únicamente para responderte y preparar un presupuesto. No los vendemos, no los cedemos con fines comerciales y no los usamos para publicidad.",
             "Cómo se envía. El formulario se envía directamente a nuestro correo mediante FormSubmit, un servicio externo que actúa como intermediario de envío. Si preferís, también podés escribirnos por WhatsApp, correo o llamada.",
             "Qué se guarda. No usamos cookies, analítica ni publicidad; solo quedan en tu equipo el idioma y el tema que elijas. La tipografía se carga desde Google Fonts, por lo que tu IP llega a sus servidores.",
             "Tus derechos. Conservamos las consultas mientras dure la relación comercial. La Ley N° 18.331 te permite acceder a tus datos, rectificarlos, actualizarlos y pedir su supresión escribiéndonos; también podés reclamar ante la URCDP.",

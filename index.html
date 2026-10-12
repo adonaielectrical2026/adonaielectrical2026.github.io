@@ -648,17 +648,30 @@
             <p class="contact-hours__row"><span>Sábados</span><strong>8:00 a 16:00</strong></p>
             <p class="contact-hours__emergency">Emergencias eléctricas: las 24 horas, los 7 días de la semana, sujeto a disponibilidad y distancia.</p>
           </div>
+
+          <div class="quote-prep">
+            <p class="quote-prep__title">Para preparar tu presupuesto</p>
+            <ul class="quote-prep__list">
+              <li><strong>Tipo de trabajo</strong><span>Describe qué necesitas o qué problema observaste.</span></li>
+              <li><strong>Ubicación</strong><span>Indica la zona y el tipo de inmueble.</span></li>
+              <li><strong>Referencias</strong><span>Si tienes fotografías o medidas, puedes enviarlas luego por WhatsApp.</span></li>
+            </ul>
+          </div>
         </div>
 
-        <form class="contact-form reveal reveal-delay-1" id="contact-form" action="https://formsubmit.co/ajax/adonaielectrical2026@gmail.com" method="POST">
+        <form class="contact-form reveal reveal-delay-1" id="contact-form" action="https://formsubmit.co/adonaielectrical2026@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nueva consulta desde la web — ADONAI ELECTRICAL">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_autoresponse" value="Recibimos tu solicitud de cotización en ADONAI ELECTRICAL. Gracias por contactarnos. Revisaremos la información y nos comunicaremos contigo para coordinar los próximos pasos. Este mensaje confirma que tu consulta fue enviada correctamente.">
+          <input type="hidden" name="_next" value="https://adonaielectrical2026.github.io/gracias/">
           <div class="form-row">
             <div class="field">
               <label for="name">Nombre</label>
               <input id="name" name="name" type="text" autocomplete="name" placeholder="Tu nombre" required>
             </div>
             <div class="field">
-              <label for="email">Email (opcional)</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="nombre@correo.com">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="nombre@correo.com" required>
             </div>
           </div>
 
@@ -695,7 +708,7 @@
 
           <div class="field field--hp" aria-hidden="true">
             <label for="company">No completar</label>
-            <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+            <input id="company" name="_honey" type="text" tabindex="-1" autocomplete="off">
           </div>
 
           <div class="form-actions">
@@ -708,8 +721,7 @@
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.4-4.7a8.5 8.5 0 1 1 16.1-4.2Z"/><path d="M8.5 8.2c.4 2.7 2.6 4.8 5.3 5.3"/></svg>
             </a>
           </div>
-          <p class="form-note">Tu consulta se enviará directamente a ADONAI ELECTRICAL. También puedes escribirnos por WhatsApp.</p>
-          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <p class="form-note">Recibirás una confirmación en el correo ingresado después de enviar la solicitud. También puedes escribirnos por WhatsApp.</p>
         </form>
       </div>
     </section>
