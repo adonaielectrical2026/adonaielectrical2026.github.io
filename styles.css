@@ -758,6 +758,7 @@ html[data-theme="dark"] .theme-toggle .sun-icon { display: block; }
   overflow: hidden;
   color: var(--charcoal);
   text-align: left;
+  text-decoration: none;
   cursor: pointer;
   appearance: none;
   background: var(--white);
@@ -840,11 +841,6 @@ html[data-theme="dark"] .theme-toggle .sun-icon { display: block; }
 .service-card__action .icon { transition: transform var(--transition); }
 .service-card:hover .service-card__action .icon { transform: translateX(3px); }
 
-.service-pages-nav { margin-top: 22px; padding: 18px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md); }
-.service-pages-nav p { margin: 0 0 10px; color: var(--steel); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
-.service-pages-nav div { display: flex; flex-wrap: wrap; gap: 8px 16px; }
-.service-pages-nav a { color: var(--graphite); font-size: 0.82rem; font-weight: 700; text-decoration: underline; text-decoration-color: var(--silver); text-underline-offset: 4px; }
-.service-pages-nav a:hover { color: var(--black); text-decoration-color: currentColor; }
 .service-card:focus-visible { outline: 3px solid var(--steel); outline-offset: 4px; }
 
 /* Galerías de servicios. Los recursos están embebidos al final del HTML. */
@@ -2077,9 +2073,10 @@ html[data-theme="dark"] .preloader-bar-fill {
 .service-page-body { min-width: 320px; }
 .service-page-header { position: sticky; z-index: 100; top: 0; background: var(--header-bg); border-bottom: 1px solid var(--header-line); backdrop-filter: blur(16px); }
 .service-page-header__inner { display: flex; min-height: 74px; align-items: center; justify-content: space-between; gap: 18px; }
-.service-page-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--black); font-weight: 600; letter-spacing: -0.02em; }
+.service-page-brand { display: inline-flex; min-width: 0; align-items: center; gap: 10px; color: var(--black); }
 .service-page-brand img { width: 46px; height: 46px; object-fit: contain; }
-.service-page-brand strong { font-weight: 900; }
+.service-page-header__actions { display: flex; align-items: center; gap: 8px; }
+.service-page-theme-toggle { flex: 0 0 auto; }
 .service-page-header .btn { min-height: 44px; padding: 10px 16px; }
 .service-page-hero { padding: 48px 0; background: linear-gradient(135deg, var(--hero-start), var(--hero-end)); }
 .service-page-hero__grid { display: grid; align-items: center; gap: 32px; }
