@@ -70,7 +70,10 @@
         media: [
           { asset: 'planoNuevo', type: 'image', plan: true, title: 'Estudio de plano eléctrico', caption: 'Detalle de un plano de obra nueva utilizado para preparar un presupuesto. Se omiten los datos identificativos del proyecto.', alt: 'Planta de vivienda con circuitos eléctricos señalados en distintos colores.' },
           { asset: 'canalizacion', type: 'image', title: 'Canalización en obra', caption: 'Registro de una instalación en proceso, con canalización y caja sobre mampostería.', alt: 'Caño naranja y caja eléctrica azul instalados en una pared de ladrillo sin terminar.' },
-          { asset: 'puntosElectricos', type: 'image', title: 'Puntos eléctricos en proceso', caption: 'Cajas y mecanismos durante una etapa de instalación, antes de las terminaciones.', alt: 'Pared revocada con cajas eléctricas y mecanismos todavía en proceso de instalación.' }
+          { asset: 'puntosElectricos', type: 'image', title: 'Puntos eléctricos en proceso', caption: 'Cajas y mecanismos durante una etapa de instalación, antes de las terminaciones.', alt: 'Pared revocada con cajas eléctricas y mecanismos todavía en proceso de instalación.' },
+          { asset: 'proyectoCanalizacionTecho', type: 'image', title: 'Distribución en techo', caption: 'Recorrido de cañerías previo al cierre de una obra nueva.', alt: 'Canalizaciones eléctricas distribuidas sobre la estructura del techo de una obra.' },
+          { asset: 'proyectoDistribucionCanos', type: 'image', title: 'Detalle de canalizaciones', caption: 'Conducciones organizadas hacia los distintos sectores.', alt: 'Detalle de varias cañerías eléctricas instaladas bajo una cubierta metálica.' },
+          { asset: 'proyectoVistaGeneral', type: 'image', title: 'Vista general de obra', caption: 'Instalación eléctrica documentada durante la ejecución.', alt: 'Vista general de una obra con las canalizaciones eléctricas instaladas.' }
         ]
       },
       remodelaciones: {
@@ -86,7 +89,8 @@
         media: [
           { asset: 'planoRemodelacion', type: 'image', plan: true, title: 'Estudio de una remodelación', caption: 'Detalle del plano de una remodelación utilizado para la elaboración de un presupuesto, sin los datos del cliente.', alt: 'Plano eléctrico de una vivienda en remodelación, con su planta y entrepiso.' },
           { asset: 'iluminacionTejida', type: 'image', title: 'Iluminación interior', caption: 'Registro de un trabajo de iluminación con luminaria colgante encendida.', alt: 'Luminaria colgante con pantalla tejida encendida en un ambiente interior.' },
-          { asset: 'iluminacionGeometrica', type: 'image', title: 'Detalle de luminaria', caption: 'Otra vista de los trabajos de iluminación realizados por ADONAI ELECTRICAL.', alt: 'Luminaria colgante de diseño geométrico con luz encendida.' }
+          { asset: 'iluminacionGeometrica', type: 'image', title: 'Detalle de luminaria', caption: 'Otra vista de los trabajos de iluminación realizados por ADONAI ELECTRICAL.', alt: 'Luminaria colgante de diseño geométrico con luz encendida.' },
+          { asset: 'remodelacionDownlight', type: 'image', title: 'Plafón LED', caption: 'Iluminación general instalada y puesta en funcionamiento.', alt: 'Plafón LED encendido después de su instalación en un ambiente interior.' }
         ]
       },
       mantenimiento: {
@@ -134,8 +138,12 @@
           'Este servicio se brinda desde ADONAI ELECTRICAL. La consulta por la web no constituye una solicitud presentada ante UTE.'
         ],
         scope: ['Solicitud de suministro', 'Solicitud de rehabilitación', 'Modificación de potencia contratada'],
-        note: '',
-        media: []
+        note: 'Registros reales de canalización, gabinete y protecciones asociados a trabajos de suministro e instalaciones exteriores.',
+        media: [
+          { asset: 'uteCanalizacionGabinete', type: 'image', title: 'Canalización y gabinete', caption: 'Preparación exterior para el suministro.', alt: 'Canalización y gabinete eléctrico instalados sobre una columna exterior.' },
+          { asset: 'uteGabineteExterior', type: 'image', title: 'Gabinete exterior', caption: 'Protección del conjunto instalado.', alt: 'Gabinete eléctrico exterior cerrado y fijado sobre una estructura.' },
+          { asset: 'uteProtecciones', type: 'image', title: 'Protecciones', caption: 'Detalle técnico del conjunto de protección.', alt: 'Interruptor y protecciones eléctricas instaladas dentro de un gabinete.' }
+        ]
       },
       emergencias: {
         title: 'Emergencias eléctricas',
@@ -448,6 +456,8 @@
           "Montaje y puesta en funcionamiento.": "Installation and commissioning.",
           "Luminaria de emergencia instalada en una pared": "Emergency light installed on a wall",
           "Equipo instalado y conectado.": "Equipment installed and connected.",
+          "Ver el trabajo completo de iluminación de emergencia en Artigas": "View the complete emergency lighting project in Artigas",
+          "Ver trabajo completo · Artigas.": "View the full project · Artigas.",
           "Canalización y caja eléctrica instaladas durante una obra": "Electrical conduit and box installed during construction",
           "Canalización en obra": "Conduit installation in progress",
           "Registro técnico durante la ejecución.": "Technical record during execution.",
@@ -595,6 +605,15 @@
           "Puntos eléctricos en proceso": "Electrical points in progress",
           "Cajas y mecanismos durante una etapa de instalación, antes de las terminaciones.": "Boxes and devices during installation, before finishing work.",
           "Pared revocada con cajas eléctricas y mecanismos todavía en proceso de instalación.": "Plastered wall with electrical boxes and devices still being installed.",
+          "Distribución en techo": "Ceiling conduit layout",
+          "Recorrido de cañerías previo al cierre de una obra nueva.": "Conduit routing before a new-build project is closed up.",
+          "Canalizaciones eléctricas distribuidas sobre la estructura del techo de una obra.": "Electrical conduits distributed across a building's roof structure.",
+          "Detalle de canalizaciones": "Conduit detail",
+          "Conducciones organizadas hacia los distintos sectores.": "Conduits organized toward the different areas.",
+          "Detalle de varias cañerías eléctricas instaladas bajo una cubierta metálica.": "Detail of several electrical conduits installed beneath a metal roof.",
+          "Vista general de obra": "General project view",
+          "Instalación eléctrica documentada durante la ejecución.": "Electrical installation documented during construction.",
+          "Vista general de una obra con las canalizaciones eléctricas instaladas.": "General view of a project with its electrical conduits installed.",
           "Modificaciones y adecuaciones eléctricas para acompañar los cambios de uso y las nuevas necesidades de cada espacio.": "Electrical alterations and upgrades to support changes in use and the new needs of each space.",
           "Instalaciones que se adaptan": "Installations that adapt",
           "Evaluamos las modificaciones solicitadas y las condiciones de la instalación existente para preparar un presupuesto de las adecuaciones o reparaciones necesarias.": "We assess the requested changes and the condition of the existing installation to quote the necessary upgrades or repairs.",
@@ -612,6 +631,9 @@
           "Detalle de luminaria": "Light fixture detail",
           "Otra vista de los trabajos de iluminación realizados por ADONAI ELECTRICAL.": "Another view of lighting work completed by ADONAI ELECTRICAL.",
           "Luminaria colgante de diseño geométrico con luz encendida.": "Illuminated geometric pendant fixture.",
+          "Plafón LED": "LED ceiling light",
+          "Iluminación general instalada y puesta en funcionamiento.": "General lighting installed and commissioned.",
+          "Plafón LED encendido después de su instalación en un ambiente interior.": "LED ceiling light switched on after installation in an interior space.",
           "Revisión, diagnóstico y mantenimiento preventivo o correctivo de instalaciones y equipos eléctricos.": "Inspection, diagnostics and preventive or corrective maintenance of electrical installations and equipment.",
           "Atención a cada instalación": "Care for every installation",
           "Cada instalación tiene necesidades diferentes. Evaluamos su estado y las fallas reportadas para definir las tareas de mantenimiento que correspondan.": "Every installation has different needs. We assess its condition and reported faults to determine the appropriate maintenance work.",
@@ -678,6 +700,16 @@
           "Solicitud de suministro": "New supply request",
           "Solicitud de rehabilitación": "Reconnection request",
           "Modificación de potencia contratada": "Contracted-capacity change",
+          "Registros reales de canalización, gabinete y protecciones asociados a trabajos de suministro e instalaciones exteriores.": "Real records of conduit, cabinet and protection work associated with supply and outdoor installations.",
+          "Canalización y gabinete": "Conduit and cabinet",
+          "Preparación exterior para el suministro.": "Outdoor preparation for the electrical supply.",
+          "Canalización y gabinete eléctrico instalados sobre una columna exterior.": "Electrical conduit and cabinet installed on an outdoor column.",
+          "Gabinete exterior": "Outdoor cabinet",
+          "Protección del conjunto instalado.": "Protection for the installed assembly.",
+          "Gabinete eléctrico exterior cerrado y fijado sobre una estructura.": "Closed outdoor electrical cabinet secured to a structure.",
+          "Protecciones": "Protection devices",
+          "Detalle técnico del conjunto de protección.": "Technical detail of the protection assembly.",
+          "Interruptor y protecciones eléctricas instaladas dentro de un gabinete.": "Switch and electrical protection devices installed inside a cabinet.",
           "Atención ante interrupciones e imprevistos eléctricos, con una evaluación de la situación y de las alternativas disponibles.": "Response to electrical outages and unexpected events, including an assessment of the situation and available alternatives.",
           "Respaldo eléctrico para un evento": "Backup power for an event",
           "Una tormenta provocó la caída de una línea y dejó a un salón de fiestas sin suministro eléctrico.": "A storm brought down a power line and left an event venue without electricity.",
@@ -753,6 +785,7 @@
         "7:00 a 18:00": "7:00 am to 6:00 pm",
         "8:00 a 16:00": "8:00 am to 4:00 pm",
         "Emergencias eléctricas: las 24 horas, los 7 días de la semana.": "Electrical emergencies: 24 hours a day, 7 days a week.",
+        "Emergencias eléctricas: las 24 horas, los 7 días de la semana, sujeto a disponibilidad y distancia.": "Electrical emergencies: 24 hours a day, 7 days a week, subject to availability and distance.",
         "Firma Instaladora autorizada por UTE · Técnico Instalador Categoría C": "Installation firm authorised by UTE · Installer Technician, Category C",
         "Excelencia": "Excellence",
         "Integridad": "Integrity",

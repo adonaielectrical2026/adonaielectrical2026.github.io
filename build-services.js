@@ -4,7 +4,7 @@ const path = require('path');
 
 const root = __dirname;
 const site = 'https://adonaielectrical2026.github.io';
-const updated = '2026-10-01';
+const updated = '2026-10-12';
 
 const services = [
   {
@@ -15,7 +15,16 @@ const services = [
     image: 'canalizacion.webp',
     intro: 'Desarrollamos soluciones eléctricas para obras nuevas y ampliaciones, considerando el uso previsto de cada espacio, las cargas necesarias y las condiciones técnicas del proyecto.',
     items: ['Revisión de planos y necesidades', 'Definición del alcance eléctrico', 'Canalizaciones, tableros y puntos eléctricos', 'Iluminación general y coordinación de obra'],
-    search: 'proyecto eléctrico en Salto'
+    search: 'proyecto eléctrico en Salto',
+    evidence: {
+      title: 'Canalizaciones ejecutadas durante una obra nueva.',
+      description: 'Registros reales de la distribución de cañerías y puntos eléctricos antes de las terminaciones.',
+      images: [
+        { src: 'proyecto-canalizacion-techo.webp', alt: 'Canalizaciones eléctricas distribuidas sobre la estructura del techo de una obra', title: 'Distribución en techo', caption: 'Recorrido de cañerías previo al cierre de la obra.' },
+        { src: 'proyecto-distribucion-canos.webp', alt: 'Detalle de varias cañerías eléctricas instaladas bajo una cubierta metálica', title: 'Detalle de canalizaciones', caption: 'Conducciones organizadas hacia los distintos sectores.' },
+        { src: 'proyecto-vista-general.webp', alt: 'Vista general de una obra con las canalizaciones eléctricas instaladas', title: 'Vista general de obra', caption: 'Instalación eléctrica documentada durante la ejecución.' }
+      ]
+    }
   },
   {
     slug: 'remodelaciones-electricas-en-salto',
@@ -25,7 +34,16 @@ const services = [
     image: 'iluminacion-geometrica.webp',
     intro: 'Adaptamos instalaciones existentes a nuevas distribuciones, usos y necesidades de iluminación, evaluando previamente el estado de los circuitos y protecciones.',
     items: ['Modificación de puntos eléctricos', 'Adecuación de circuitos y tableros', 'Renovación de iluminación', 'Coordinación con reformas y terminaciones'],
-    search: 'remodelación eléctrica en Salto'
+    search: 'remodelación eléctrica en Salto',
+    evidence: {
+      title: 'Iluminación renovada en espacios interiores.',
+      description: 'Ejemplos reales de luminarias instaladas y puestas en funcionamiento durante trabajos de adecuación.',
+      images: [
+        { src: 'remodelacion-downlight.webp', alt: 'Plafón LED encendido después de su instalación en un ambiente interior', title: 'Plafón LED', caption: 'Iluminación general instalada y en funcionamiento.', position: 'top' },
+        { src: 'iluminacion-tejida.webp', alt: 'Luminaria colgante con pantalla tejida encendida', title: 'Luminaria colgante', caption: 'Montaje y puesta en funcionamiento.' },
+        { src: 'iluminacion-geometrica.webp', alt: 'Luminaria geométrica encendida después de su instalación', title: 'Detalle decorativo', caption: 'Terminación de iluminación interior.' }
+      ]
+    }
   },
   {
     slug: 'mantenimiento-electrico-en-salto',
@@ -35,7 +53,17 @@ const services = [
     image: 'protecciones.webp',
     intro: 'Revisamos fallas, desgaste y condiciones de funcionamiento para definir las reparaciones o tareas preventivas que requiere cada instalación.',
     items: ['Diagnóstico de fallas', 'Revisión de tableros y protecciones', 'Reparaciones y sustituciones', 'Mantenimiento preventivo y correctivo'],
-    search: 'mantenimiento eléctrico en Salto'
+    search: 'mantenimiento eléctrico en Salto',
+    evidence: {
+      title: 'Registros para diagnóstico y mantenimiento.',
+      description: 'Documentamos el estado encontrado antes de definir las reparaciones o sustituciones necesarias.',
+      note: 'Las fotografías muestran condiciones previas al acondicionamiento; no representan la terminación del trabajo.',
+      images: [
+        { src: 'protecciones.webp', alt: 'Protecciones y conductores dentro de un gabinete antes del acondicionamiento', title: 'Protecciones eléctricas', caption: 'Revisión del estado de un gabinete existente.' },
+        { src: 'luminaria-exterior.webp', alt: 'Luminaria exterior con una rotura visible en su carcasa', title: 'Daño en luminaria exterior', caption: 'Registro previo a la intervención.' },
+        { src: 'luminaria-desprendida.webp', alt: 'Luminaria exterior desprendida de su base sobre el césped', title: 'Punto a acondicionar', caption: 'Evaluación de una luminaria desprendida.' }
+      ]
+    }
   },
   {
     slug: 'electricista-de-emergencia-en-salto',
@@ -55,7 +83,8 @@ const services = [
     image: 'iluminacion-emergencia.webp',
     intro: 'Instalamos luminarias de emergencia y realizamos adecuaciones eléctricas asociadas, de acuerdo con el alcance técnico definido para cada inmueble.',
     items: ['Instalación de luminarias de emergencia', 'Revisión de alimentación y funcionamiento', 'Adecuaciones eléctricas asociadas', 'Coordinación con el alcance del proceso ante DNB'],
-    search: 'iluminación de emergencia en Salto'
+    search: 'iluminación de emergencia en Salto',
+    customPage: true
   },
   {
     slug: 'tramites-ute-en-salto',
@@ -65,7 +94,16 @@ const services = [
     image: 'plano-nuevo.webp',
     intro: 'Acompañamos la preparación técnica de gestiones vinculadas a instalaciones eléctricas, definiendo primero qué intervención corresponde en cada caso.',
     items: ['Solicitud de suministro', 'Solicitud de rehabilitación', 'Modificación de potencia contratada', 'Evaluación de adecuaciones necesarias'],
-    search: 'trámites UTE en Salto'
+    search: 'trámites UTE en Salto',
+    evidence: {
+      title: 'Preparación técnica para suministros eléctricos.',
+      description: 'Registros de canalización, gabinete y protecciones asociados a trabajos de suministro e instalaciones exteriores.',
+      images: [
+        { src: 'ute-canalizacion-gabinete.webp', alt: 'Canalización y gabinete eléctrico instalados sobre una columna exterior', title: 'Canalización y gabinete', caption: 'Preparación exterior para el suministro.', position: 'top' },
+        { src: 'ute-gabinete-exterior.webp', alt: 'Gabinete eléctrico exterior cerrado y fijado sobre una estructura', title: 'Gabinete exterior', caption: 'Protección del conjunto instalado.' },
+        { src: 'ute-protecciones.webp', alt: 'Interruptor y protecciones eléctricas instaladas dentro de un gabinete', title: 'Protecciones', caption: 'Detalle técnico del conjunto de protección.' }
+      ]
+    }
   },
   {
     slug: 'instalacion-camaras-seguridad-en-salto',
@@ -75,7 +113,16 @@ const services = [
     image: 'camara-terminada.webp',
     intro: 'Instalamos sistemas de videovigilancia con una ubicación planificada de cámaras, tendido protegido y configuración inicial según las necesidades del lugar.',
     items: ['Evaluación de zonas a supervisar', 'Instalación y orientación de cámaras', 'Cableado, alimentación y conexiones', 'Configuración inicial y verificación del sistema'],
-    search: 'instalación de cámaras en Salto'
+    search: 'instalación de cámaras en Salto',
+    evidence: {
+      title: 'Instalación exterior documentada paso a paso.',
+      description: 'Canalización, conexiones protegidas y cámara instalada en su ubicación final.',
+      images: [
+        { src: 'camara-cableado.webp', alt: 'Cableado de alimentación y datos tendido hacia el punto de la cámara', title: 'Canalización', caption: 'Tendido hasta el punto de instalación.' },
+        { src: 'camara-conexion.webp', alt: 'Conexiones protegidas dentro de una caja de paso', title: 'Conexiones', caption: 'Terminación dentro de la caja de paso.' },
+        { src: 'camara-terminada.webp', alt: 'Cámara de seguridad instalada y orientada en el exterior de una vivienda', title: 'Instalación terminada', caption: 'Cámara conectada y orientada.' }
+      ]
+    }
   }
 ];
 
@@ -117,6 +164,19 @@ function page(service) {
   };
 
   const related = services.filter(item => item.slug !== service.slug).slice(0, 3);
+  const evidence = service.evidence ? `
+    <section class="section service-page-evidence" aria-labelledby="evidence-${service.slug}">
+      <div class="container">
+        <header class="service-page-evidence__heading">
+          <div><p class="eyebrow">Trabajos realizados</p><h2 id="evidence-${service.slug}">${esc(service.evidence.title)}</h2></div>
+          <p>${esc(service.evidence.description)}</p>
+        </header>
+        <div class="service-page-evidence__gallery">
+          ${service.evidence.images.map(image => `<figure><a class="service-page-photo-link" href="/${image.src}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ${esc(image.title)} en tamaño completo"><img${image.position ? ` class="service-page-photo--${image.position}"` : ''} src="/${image.src}" alt="${esc(image.alt)}" loading="lazy" decoding="async"></a><figcaption><strong>${esc(image.title)}</strong><span>${esc(image.caption)}</span></figcaption></figure>`).join('')}
+        </div>
+${service.evidence.note ? `        <p class="service-page-evidence__note">${esc(service.evidence.note)}</p>` : ''}
+      </div>
+    </section>` : '';
   return `<!DOCTYPE html>
 <html lang="es-UY">
 <head>
@@ -180,6 +240,7 @@ function page(service) {
         </aside>
       </div>
     </section>
+${evidence}
     <section class="section section--soft service-page-process">
       <div class="container"><p class="eyebrow">Cómo trabajamos</p><h2>Consulta, relevamiento, presupuesto y ejecución.</h2><ol class="process-list"><li><span>01</span><div><h3>Consulta</h3><p>Recibimos la información inicial.</p></div></li><li><span>02</span><div><h3>Relevamiento</h3><p>Evaluamos el lugar y la instalación.</p></div></li><li><span>03</span><div><h3>Presupuesto</h3><p>Definimos el alcance y la propuesta.</p></div></li><li><span>04</span><div><h3>Ejecución</h3><p>Coordinamos y realizamos el trabajo.</p></div></li></ol></div>
     </section>
@@ -192,6 +253,7 @@ function page(service) {
 }
 
 for (const service of services) {
+  if (service.customPage) continue;
   const dir = path.join(root, 'servicios', service.slug);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'index.html'), page(service), 'utf8');
@@ -205,4 +267,4 @@ const urls = [
 const alternates = `\n    <xhtml:link rel="alternate" hreflang="es" href="${site}/"/>\n    <xhtml:link rel="alternate" hreflang="en" href="${site}/en/"/>\n    <xhtml:link rel="alternate" hreflang="x-default" href="${site}/"/>`;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.map(url => `  <url>\n    <loc>${url.loc}</loc>\n    <lastmod>${updated}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${url.priority}</priority>${url.loc === `${site}/` || url.loc === `${site}/en/` ? alternates : ''}\n  </url>`).join('\n')}\n</urlset>\n`;
 fs.writeFileSync(path.join(root, 'sitemap.xml'), sitemap, 'utf8');
-console.log(`Generadas ${services.length} páginas de servicio y sitemap.xml`);
+console.log(`Generadas ${services.filter(service => !service.customPage).length} páginas de servicio y sitemap.xml`);
