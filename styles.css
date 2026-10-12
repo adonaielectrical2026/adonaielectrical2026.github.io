@@ -1011,7 +1011,76 @@ html[data-theme="dark"] .theme-toggle .sun-icon { display: block; }
   box-shadow: var(--shadow-lg);
 }
 .trust-banner__visual { display: none; background: #0d0e10; }
-.trust-banner__visual img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover; }
+.trust-banner__visual > img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover; }
+.credential-mosaic {
+  position: relative;
+  display: grid;
+  aspect-ratio: 3 / 1;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle, rgba(255,255,255,.16) 1.2px, transparent 1.6px) 0 0 / 24px 24px,
+    linear-gradient(135deg, #292b30, #090a0c 72%);
+}
+.credential-mosaic::before,
+.credential-mosaic::after {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  width: 24%;
+  content: "";
+  background-repeat: no-repeat;
+  background-size: 417% 100%, 417% 100%;
+  filter: grayscale(1) contrast(1.06);
+}
+.credential-mosaic::before {
+  left: 0;
+  background-image: linear-gradient(90deg, transparent 58%, #111216), url("credencial-adonai-ute.webp");
+  background-position: center, left center;
+}
+.credential-mosaic::after {
+  right: 0;
+  background-image: linear-gradient(270deg, transparent 58%, #111216), url("credencial-adonai-ute.webp");
+  background-position: center, right center;
+}
+.credential-mosaic__content {
+  position: relative;
+  display: grid;
+  width: min(62%, 760px);
+  justify-items: center;
+  color: #f7f7f8;
+  text-align: center;
+}
+.credential-mosaic__brand { display: flex; align-items: center; justify-content: center; gap: clamp(10px, 2vw, 24px); }
+.credential-mosaic__brand > strong {
+  font-size: clamp(1.35rem, 3.5vw, 3.1rem);
+  font-weight: 900;
+  letter-spacing: -.06em;
+  line-height: .82;
+  text-align: left;
+}
+.credential-mosaic__brand img { display: block; width: clamp(68px, 10vw, 136px); height: auto; }
+.credential-mosaic__authorisation {
+  margin: clamp(4px, .8vw, 10px) 0 0;
+  font-size: clamp(.62rem, 1.32vw, 1.08rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+.credential-mosaic__authorisation strong { font-size: 1.2em; font-weight: 900; letter-spacing: -.04em; }
+.credential-mosaic__services {
+  display: grid;
+  width: 100%;
+  gap: 2px;
+  margin-top: clamp(5px, 1vw, 12px);
+  padding: clamp(5px, .8vw, 9px) 0;
+  border-top: 1px solid rgba(255,255,255,.58);
+  border-bottom: 1px solid rgba(255,255,255,.58);
+}
+.credential-mosaic__services strong { font-size: clamp(.72rem, 1.65vw, 1.36rem); line-height: 1.12; }
+.credential-mosaic__services span { color: #d3d4d7; font-size: clamp(.52rem, 1vw, .82rem); line-height: 1.2; }
+.credential-mosaic__location { margin: clamp(4px, .8vw, 9px) 0 0; font-size: clamp(.56rem, 1vw, .84rem); font-weight: 700; }
 .trust-banner__mobile {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
