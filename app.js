@@ -922,8 +922,6 @@
         if (className) target.append(wrapper);
       }
 
-      const hero = document.querySelector('.hero');
-      cloneBrandMark(hero, 'hero-brand-watermark', 'hero');
       document.querySelectorAll('.identity-card').forEach((card, index) => {
         cloneBrandMark(card, 'identity-card__watermark', 'identity-' + index);
       });
