@@ -4,6 +4,7 @@ const path = require('path');
 const vm = require('vm');
 
 const root = __dirname;
+const formEndpoint = 'https://script.google.com/macros/s/AKfycbxHTMyb5a34w6k1IhQCO7Mw3L-q3Y-p4DLwt__obO0sI9mZJQqqiXG_2aQi48yOdpserA/exec';
 const pages = [
   'index.html',
   'en/index.html',
@@ -28,6 +29,19 @@ for (const relativePath of pages) {
       : path.resolve(path.dirname(filePath), cleanPath);
     if (cleanPath.endsWith('/')) target = path.join(target, 'index.html');
     if (!fs.existsSync(target)) errors.push(`${relativePath}: no existe ${url}`);
+  }
+}
+
+for (const [relativePath, language] of [['index.html', 'es'], ['en/index.html', 'en']]) {
+  const html = fs.readFileSync(path.join(root, relativePath), 'utf8');
+  if (!html.includes(`action="${formEndpoint}"`)) {
+    errors.push(`${relativePath}: el formulario no apunta a Google Apps Script.`);
+  }
+  if (!html.includes(`name="idioma" value="${language}"`)) {
+    errors.push(`${relativePath}: el idioma del formulario no es ${language}.`);
+  }
+  if (/formsubmit\.co|_autoresponse|name="_next"/.test(html)) {
+    errors.push(`${relativePath}: conserva configuración obsoleta de FormSubmit.`);
   }
 }
 
