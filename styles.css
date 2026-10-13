@@ -2182,6 +2182,9 @@ html[data-theme="dark"] .preloader-bar-fill {
 .service-page-project__gallery figcaption { display: grid; gap: 2px; padding: 11px 2px 0; }
 .service-page-project__gallery strong { color: #fff; font-size: .92rem; }
 .service-page-project__gallery span { color: #a8a9ad; font-size: .76rem; line-height: 1.5; }
+.service-page-project__gallery--shekina { grid-template-columns: minmax(0, 1fr); }
+.service-page-project__gallery--shekina .service-page-project__gallery-featured img { aspect-ratio: 16 / 9; }
+.service-page-project__gallery--shekina figure:not(.service-page-project__gallery-featured) img { aspect-ratio: 3 / 4; object-position: center 22%; }
 .service-page-photo-link { display: block; overflow: hidden; border-radius: var(--radius-md); }
 .service-page-photo-link:focus-visible { outline: 3px solid #d7b684; outline-offset: 4px; }
 .service-page-photo-link img { transition: transform 320ms ease; }
@@ -2199,6 +2202,13 @@ html[data-theme="dark"] .preloader-bar-fill {
 .service-page-secondary-project h3 { margin-bottom: 12px; color: #fff; font-size: clamp(1.55rem, 3vw, 2.2rem); }
 .service-page-secondary-project p { color: #c9cace; line-height: 1.7; }
 .service-page-secondary-project__note { margin-bottom: 0; color: #a8a9ad !important; font-size: .82rem; }
+.service-page-secondary-project.service-page-secondary-project--gallery { grid-template-columns: minmax(0, 1fr); align-items: start; }
+.service-page-secondary-project__gallery { display: grid; gap: 14px; }
+.service-page-secondary-project__gallery figure { min-width: 0; margin: 0; }
+.service-page-secondary-project__gallery img { aspect-ratio: 3 / 4; object-position: center 24%; }
+.service-page-secondary-project__gallery figcaption { display: grid; gap: 3px; padding: 11px 2px 0; }
+.service-page-secondary-project__gallery strong { color: #fff; font-size: .88rem; }
+.service-page-secondary-project__gallery span { color: #a8a9ad; font-size: .76rem; line-height: 1.5; }
 .service-page-project__cta {
   display: grid;
   align-items: center;
@@ -2249,7 +2259,10 @@ html[data-theme="dark"] .preloader-bar-fill {
   .service-page-project__status { justify-self: end; }
   .service-page-project__metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .service-page-project__gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .service-page-project__gallery--shekina { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service-page-project__gallery--shekina .service-page-project__gallery-featured { grid-column: 1 / -1; }
   .service-page-secondary-project { grid-template-columns: minmax(300px, .82fr) minmax(0, 1fr); align-items: center; padding: 30px; }
+  .service-page-secondary-project__gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .service-page-project__cta { grid-template-columns: minmax(0, 1fr) auto; padding: 28px 30px; }
   .service-page-project__cta .btn { justify-self: end; }
   .service-page-evidence__heading { grid-template-columns: minmax(0, 1fr) minmax(280px, .7fr); }
