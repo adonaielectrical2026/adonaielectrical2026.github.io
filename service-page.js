@@ -3,6 +3,27 @@
   const toggle = document.getElementById('service-theme-toggle');
   const themeColor = document.querySelector('meta[name="theme-color"]');
   const isEnglish = root.lang.toLowerCase().startsWith('en');
+  const serviceByPath = {
+    '/servicios/proyectos-electricos-en-salto/': 'proyectos',
+    '/servicios/remodelaciones-electricas-en-salto/': 'remodelaciones',
+    '/servicios/mantenimiento-electrico-en-salto/': 'mantenimiento',
+    '/servicios/electricista-de-emergencia-en-salto/': 'emergencias',
+    '/servicios/iluminacion-de-emergencia-en-salto/': 'iluminacion',
+    '/servicios/tramites-ute-en-salto/': 'tramites',
+    '/servicios/instalacion-camaras-seguridad-en-salto/': 'camaras'
+  };
+
+  const normalizedPath = window.location.pathname.endsWith('/')
+    ? window.location.pathname
+    : `${window.location.pathname}/`;
+  const currentService = serviceByPath[normalizedPath];
+
+  if (currentService) {
+    const quoteUrl = `/?servicio=${encodeURIComponent(currentService)}#contacto`;
+    document.querySelectorAll('a[href="/#contacto"]').forEach(link => {
+      link.href = quoteUrl;
+    });
+  }
 
   function applyTheme(theme, save = false) {
     const isDark = theme === 'dark';

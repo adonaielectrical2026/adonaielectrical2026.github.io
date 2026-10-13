@@ -1106,7 +1106,7 @@ html[data-theme="dark"] .theme-toggle .sun-icon { display: block; }
 .trust-banner__action { width: 100%; color: #111216; background: #ffffff; border-color: #ffffff; }
 .trust-banner__action:hover { background: #e7e7e9; }
 
-.trust-block { margin-top: 42px; }
+.trust-block { margin-top: 42px; scroll-margin-top: calc(var(--header-height) + 24px); }
 .trust-block__heading { display: grid; gap: 10px; margin-bottom: 20px; }
 .trust-block__heading h3 { margin-bottom: 0; font-size: clamp(1.35rem, 3vw, 1.8rem); }
 .trust-block__heading > p { max-width: 580px; margin: 0; color: var(--steel); line-height: 1.6; }

@@ -190,6 +190,7 @@ function build() {
       'value="https://adonaielectrical2026.github.io/gracias/"',
       'value="https://adonaielectrical2026.github.io/en/thanks/"'
     );
+    html = html.replace('name="idioma" value="es"', 'name="idioma" value="en"');
   }
 
   // hreflang: apuntar cada variante a su propia URL, sin duplicar la propia.

@@ -4,7 +4,7 @@ const path = require('path');
 
 const root = __dirname;
 const site = 'https://adonaielectrical2026.github.io';
-const updated = '2026-10-12';
+const updated = '2026-10-13';
 
 const services = [
   {
@@ -12,7 +12,14 @@ const services = [
     name: 'Proyectos eléctricos en Salto',
     short: 'Proyectos nuevos',
     description: 'Planificación, presupuesto e instalación eléctrica para viviendas, comercios, industrias, ampliaciones y obras nuevas en Salto.',
-    image: 'canalizacion.webp',
+    image: 'shekina-fachada-portada.webp',
+    hero: {
+      src: 'shekina-fachada-portada.webp',
+      alt: 'Fachada iluminada del Salón de Fiestas y Eventos SHEKINA en Salto',
+      className: 'service-page-visual--landscape',
+      width: 1600,
+      height: 960
+    },
     intro: 'Desarrollamos soluciones eléctricas para obras nuevas y ampliaciones, considerando el uso previsto de cada espacio, las cargas necesarias y las condiciones técnicas del proyecto.',
     items: ['Revisión de planos y necesidades', 'Definición del alcance eléctrico', 'Canalizaciones, tableros y puntos eléctricos', 'Iluminación general y coordinación de obra'],
     search: 'proyecto eléctrico en Salto',
@@ -24,7 +31,8 @@ const services = [
         { src: 'proyecto-distribucion-canos.webp', alt: 'Detalle de varias cañerías eléctricas instaladas bajo una cubierta metálica', title: 'Detalle de canalizaciones', caption: 'Conducciones organizadas hacia los distintos sectores.' },
         { src: 'proyecto-vista-general.webp', alt: 'Vista general de una obra con las canalizaciones eléctricas instaladas', title: 'Vista general de obra', caption: 'Instalación eléctrica documentada durante la ejecución.' }
       ]
-    }
+    },
+    project: 'shekina'
   },
   {
     slug: 'remodelaciones-electricas-en-salto',
@@ -91,16 +99,21 @@ const services = [
     name: 'Trámites ante UTE en Salto',
     short: 'Trámites ante UTE',
     description: 'Asesoramiento técnico y acompañamiento para solicitudes de suministro, rehabilitación y cambios de potencia ante UTE en Salto.',
-    image: 'plano-nuevo.webp',
+    image: 'shekina-ute-medidor-y-salon.jpeg',
+    hero: {
+      src: 'shekina-ute-gabinete-exterior.jpeg',
+      alt: 'Gabinete de medida exterior instalado para el Salón de Fiestas y Eventos SHEKINA'
+    },
     intro: 'Acompañamos la preparación técnica de gestiones vinculadas a instalaciones eléctricas, definiendo primero qué intervención corresponde en cada caso.',
     items: ['Solicitud de suministro', 'Solicitud de rehabilitación', 'Modificación de potencia contratada', 'Evaluación de adecuaciones necesarias'],
     search: 'trámites UTE en Salto',
     evidence: {
-      title: 'Preparación técnica para suministros eléctricos.',
-      description: 'Registros de canalización, gabinete y protecciones asociados a trabajos de suministro e instalaciones exteriores.',
+      eyebrow: 'Trabajo documentado',
+      title: 'Solicitud de suministro para el Salón SHEKINA.',
+      description: 'Registros del punto de medida exterior y de las protecciones asociadas al suministro solicitado para el salón de fiestas y eventos.',
       images: [
-        { src: 'ute-canalizacion-gabinete.webp', alt: 'Canalización y gabinete eléctrico instalados sobre una columna exterior', title: 'Canalización y gabinete', caption: 'Preparación exterior para el suministro.', position: 'top' },
-        { src: 'ute-gabinete-exterior.webp', alt: 'Gabinete eléctrico exterior cerrado y fijado sobre una estructura', title: 'Gabinete exterior', caption: 'Protección del conjunto instalado.' },
+        { src: 'shekina-ute-medidor-y-salon.jpeg', alt: 'Medidor exterior instalado con el Salón de Fiestas y Eventos SHEKINA al fondo', title: 'Contexto de la instalación', caption: 'Punto de medida exterior con el Salón SHEKINA al fondo.' },
+        { src: 'shekina-ute-gabinete-exterior.jpeg', alt: 'Gabinete de medida exterior y canalización instalados sobre una columna', title: 'Gabinete de medida', caption: 'Vista del conjunto exterior instalado.', position: 'top' },
         { src: 'ute-protecciones.webp', alt: 'Interruptor y protecciones eléctricas instaladas dentro de un gabinete', title: 'Protecciones', caption: 'Detalle técnico del conjunto de protección.' }
       ]
     }
@@ -168,7 +181,7 @@ function page(service) {
     <section class="section service-page-evidence" aria-labelledby="evidence-${service.slug}">
       <div class="container">
         <header class="service-page-evidence__heading">
-          <div><p class="eyebrow">Trabajos realizados</p><h2 id="evidence-${service.slug}">${esc(service.evidence.title)}</h2></div>
+          <div><p class="eyebrow">${esc(service.evidence.eyebrow || 'Trabajos realizados')}</p><h2 id="evidence-${service.slug}">${esc(service.evidence.title)}</h2></div>
           <p>${esc(service.evidence.description)}</p>
         </header>
         <div class="service-page-evidence__gallery">
@@ -177,6 +190,34 @@ function page(service) {
 ${service.evidence.note ? `        <p class="service-page-evidence__note">${esc(service.evidence.note)}</p>` : ''}
       </div>
     </section>` : '';
+  const project = service.project === 'shekina' ? `
+    <section class="section service-page-project" aria-labelledby="shekina-project-title">
+      <div class="container">
+        <header class="service-page-project__heading">
+          <div>
+            <p class="eyebrow">Proyecto eléctrico inicial · Salto</p>
+            <h2 id="shekina-project-title">Instalación eléctrica del Salón de Fiestas y Eventos SHEKINA.</h2>
+            <p>El proyecto inicial incluyó la distribución eléctrica del establecimiento, la iluminación general, los tableros de protección y los circuitos destinados a los distintos sectores.</p>
+            <p>El tablero general alimenta prácticamente todo el salón. Un tablero secundario independiente abastece la cocina y los baños, facilitando la sectorización y el control de esos consumos.</p>
+          </div>
+          <span class="service-page-project__status">Proyecto ejecutado</span>
+        </header>
+        <dl class="service-page-project__metrics" aria-label="Resumen del proyecto eléctrico del Salón SHEKINA">
+          <div><dt>2</dt><dd>Tableros de distribución</dd></div>
+          <div><dt>1</dt><dd>Tablero general</dd></div>
+          <div><dt>1</dt><dd>Tablero secundario</dd></div>
+          <div><dt>5</dt><dd>Luminarias de emergencia</dd></div>
+        </dl>
+        <div class="service-page-project__gallery service-page-project__gallery--shekina">
+          <figure class="service-page-project__gallery-featured"><a class="service-page-photo-link" href="/shekina-proyecto-general.webp" target="_blank" rel="noopener noreferrer" aria-label="Abrir vista general de la iluminación del Salón SHEKINA en tamaño completo"><img src="/shekina-proyecto-general.webp" alt="Iluminación general instalada en el Salón de Fiestas y Eventos SHEKINA" width="1600" height="900" loading="lazy" decoding="async"></a><figcaption><strong>Iluminación general</strong><span>Paneles LED instalados como parte del proyecto eléctrico inicial.</span></figcaption></figure>
+          <figure><a class="service-page-photo-link" href="/shekina-tablero-general.webp" target="_blank" rel="noopener noreferrer" aria-label="Abrir fotografía del tablero general del Salón SHEKINA en tamaño completo"><img src="/shekina-tablero-general.webp" alt="Tablero general de distribución del Salón de Fiestas y Eventos SHEKINA" width="900" height="1600" loading="lazy" decoding="async"></a><figcaption><strong>Tablero general</strong><span>Distribución principal que alimenta prácticamente todo el salón.</span></figcaption></figure>
+          <figure><a class="service-page-photo-link" href="/shekina-tablero-secundario.webp" target="_blank" rel="noopener noreferrer" aria-label="Abrir fotografía del tablero secundario del Salón SHEKINA en tamaño completo"><img src="/shekina-tablero-secundario.webp" alt="Tablero secundario que alimenta la cocina y los baños del Salón SHEKINA" width="900" height="1600" loading="lazy" decoding="async"></a><figcaption><strong>Tablero secundario</strong><span>Alimentación independiente para la cocina y los baños.</span></figcaption></figure>
+        </div>
+        <div class="service-page-project__cta"><div><h3>Iluminación de emergencia del establecimiento</h3><p>El proyecto también incorporó cinco luminarias autónomas para respaldar las rutas de salida.</p></div><a class="btn" href="/servicios/iluminacion-de-emergencia-en-salto/">Ver instalación de emergencia</a></div>
+      </div>
+    </section>` : '';
+
+  const hero = service.hero || { src: service.image, alt: `${service.short} — ADONAI ELECTRICAL en Salto` };
   return `<!DOCTYPE html>
 <html lang="es-UY">
 <head>
@@ -239,7 +280,7 @@ ${service.evidence.note ? `        <p class="service-page-evidence__note">${esc(
           <p class="service-page-lead">${esc(service.description)}</p>
           <div class="service-page-actions"><a class="btn btn--dark" href="/#contacto">Pedir presupuesto</a><a class="btn service-page-whatsapp" href="https://wa.me/59898152423?text=${encodeURIComponent(`Hola ADONAI ELECTRICAL, quisiera consultar por ${service.short}.`)}">Consultar por WhatsApp</a></div>
         </div>
-        <figure class="service-page-visual"><img src="/${service.image}" alt="${esc(service.short)} — ADONAI ELECTRICAL en Salto" loading="eager" decoding="async"></figure>
+        <figure class="service-page-visual${hero.className ? ` ${hero.className}` : ''}"><img src="/${hero.src}" alt="${esc(hero.alt)}"${hero.width ? ` width="${hero.width}"` : ''}${hero.height ? ` height="${hero.height}"` : ''} loading="eager" decoding="async"></figure>
       </div>
     </section>
     <section class="section service-page-content">
@@ -259,7 +300,7 @@ ${service.evidence.note ? `        <p class="service-page-evidence__note">${esc(
         </aside>
       </div>
     </section>
-${evidence}
+${[evidence, project].filter(Boolean).join('\n')}
     <section class="section section--soft service-page-process">
       <div class="container"><p class="eyebrow">Cómo trabajamos</p><h2>Consulta, relevamiento, presupuesto y ejecución.</h2><ol class="process-list"><li><span class="process-mark" aria-hidden="true"><img src="/proceso-consulta.webp" alt="" width="72" height="72" loading="lazy" decoding="async"></span><div><h3>Consulta</h3><p>Recibimos la información inicial.</p></div></li><li><span class="process-mark" aria-hidden="true"><img src="/proceso-relevamiento.webp" alt="" width="72" height="72" loading="lazy" decoding="async"></span><div><h3>Relevamiento</h3><p>Evaluamos el lugar y la instalación.</p></div></li><li><span class="process-mark" aria-hidden="true"><img src="/proceso-presupuesto.webp" alt="" width="72" height="72" loading="lazy" decoding="async"></span><div><h3>Presupuesto</h3><p>Definimos el alcance y la propuesta.</p></div></li><li><span class="process-mark" aria-hidden="true"><img src="/proceso-ejecucion.webp" alt="" width="72" height="72" loading="lazy" decoding="async"></span><div><h3>Ejecución</h3><p>Coordinamos y realizamos el trabajo.</p></div></li></ol></div>
     </section>
@@ -268,7 +309,7 @@ ${evidence}
   </main>
   <footer class="service-page-footer"><div class="container"><span>© ${new Date().getFullYear()} ADONAI ELECTRICAL · Salto, Uruguay</span><a href="/">Volver al sitio principal</a></div></footer>
 </body>
-</html>`;
+</html>\n`;
 }
 
 for (const service of services) {
