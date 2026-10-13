@@ -2135,6 +2135,7 @@ html[data-theme="dark"] .preloader-bar-fill {
 .service-page-whatsapp:hover { background: #1f6840; }
 .service-page-visual { height: 360px; margin: 0; overflow: hidden; background: #171719; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
 .service-page-visual img { width: 100%; height: 100%; object-fit: cover; }
+.service-page-visual.service-page-visual--landscape { height: auto; aspect-ratio: 5 / 3; }
 .service-page-content__grid { display: grid; gap: 34px; }
 .service-page-content article > p { color: var(--graphite); line-height: 1.75; }
 .service-page-content article h3 { margin-top: 30px; }
