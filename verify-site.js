@@ -5,6 +5,8 @@ const vm = require('vm');
 
 const root = __dirname;
 const formEndpoint = 'https://script.google.com/macros/s/AKfycbxHTMyb5a34w6k1IhQCO7Mw3L-q3Y-p4DLwt__obO0sI9mZJQqqiXG_2aQi48yOdpserA/exec';
+const uteRegistryUrl = 'https://portal.ute.com.uy/firmas-y-tecnicos-instaladores/listado';
+const mapsUrl = 'https://maps.app.goo.gl/V9LVF2VNXMjx3SFZ6';
 const pages = [
   'index.html',
   'en/index.html',
@@ -39,6 +41,13 @@ for (const [relativePath, language] of [['index.html', 'es'], ['en/index.html', 
   }
   if (!html.includes(`name="idioma" value="${language}"`)) {
     errors.push(`${relativePath}: el idioma del formulario no es ${language}.`);
+  }
+  if (!new RegExp(`<a class="footer-credential" href="${uteRegistryUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`).test(html)) {
+    errors.push(`${relativePath}: la habilitación del pie no enlaza al registro de UTE.`);
+  }
+  const footerContactMatch = html.match(/<ul class="footer-contact">([\s\S]*?)<\/ul>/);
+  if (!footerContactMatch?.[1].includes(`href="${mapsUrl}"`)) {
+    errors.push(`${relativePath}: la dirección del pie no enlaza a Google Maps.`);
   }
   if (/formsubmit\.co|_autoresponse|name="_next"/.test(html)) {
     errors.push(`${relativePath}: conserva configuración obsoleta de FormSubmit.`);

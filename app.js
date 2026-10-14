@@ -129,6 +129,7 @@
           "Tu experiencia puede ayudar a otras personas a elegir un servicio eléctrico profesional y confiable.": "Your experience can help others choose a professional and reliable electrical service.",
           "Compartir mi experiencia": "Share my experience",
           "Abrir ubicación de ADONAI ELECTRICAL en Google Maps": "Open ADONAI ELECTRICAL location in Google Maps",
+          "Consultar firmas y técnicos instaladores registrados en UTE": "View UTE's registered installation firms and technicians",
           "ADONAI ELECTRICAL en Google Maps": "ADONAI ELECTRICAL on Google Maps",
           "Ubicación": "Location",
           "Cambiar idioma": "Change language",

@@ -2389,17 +2389,40 @@ html[data-theme="dark"] .preloader-bar-fill {
 /* Habilitación ante UTE: franja propia a lo ancho del pie, arriba de la barra
    inferior. Sacarla de la columna de marca empareja las cuatro columnas. */
 .footer-credential {
-  display: inline-block;
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
   margin: 30px 0 0;
   padding: 8px 14px;
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
   color: #e8e9ea;
+  background: rgba(255, 255, 255, 0.025);
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   line-height: 1.45;
+  text-align: center;
+  transition: color var(--transition), background var(--transition), border-color var(--transition), transform var(--transition);
 }
+
+.footer-credential:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.48);
+  transform: translateY(-2px);
+}
+
+.footer-credential__arrow {
+  flex: 0 0 auto;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: transform var(--transition);
+}
+
+.footer-credential:hover .footer-credential__arrow { transform: translate(2px, -2px); }
 
 /* --- Franja de valores en la portada: los nueve nombres en 3x3 --- */
 .hero-principles {
