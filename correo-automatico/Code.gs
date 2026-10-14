@@ -1,9 +1,11 @@
 const CONFIG = Object.freeze({
   businessName: 'ADONAI ELECTRICAL',
+  ownerName: 'Claudio Rodríguez',
   ownerEmail: 'adonaielectrical2026@gmail.com',
   phoneDisplay: '+598 98 152 423',
   whatsappUrl: 'https://wa.me/59898152423',
   siteUrl: 'https://adonaielectrical2026.github.io',
+  logoUrl: 'https://adonaielectrical2026.github.io/logo-mark-92.webp',
   address: 'Av. Defensa 1599, Salto, Uruguay'
 });
 
@@ -110,6 +112,9 @@ function sendCustomerConfirmation(request, service) {
     message: 'Message',
     whatsapp: 'Contact us on WhatsApp',
     urgent: 'If your request is urgent, call us or contact us on WhatsApp.',
+    signatureRole: 'UTE-registered Electrical Installer · Category C',
+    signatureRegistration: 'Registered electrical contractor with UTE',
+    signatureTagline: 'Energy with purpose.',
     footer: 'This is an automatic confirmation. You can reply to this email if you need to add information.'
   } : {
     subject: 'Recibimos tu solicitud | ADONAI ELECTRICAL',
@@ -123,6 +128,9 @@ function sendCustomerConfirmation(request, service) {
     message: 'Mensaje',
     whatsapp: 'Escribir por WhatsApp',
     urgent: 'Si tu consulta es urgente, llámanos o escríbenos por WhatsApp.',
+    signatureRole: 'Técnico Instalador · Categoría C ante UTE',
+    signatureRegistration: 'Firma Instaladora registrada ante UTE',
+    signatureTagline: 'Energía con propósito.',
     footer: 'Esta es una confirmación automática. Puedes responder este correo si necesitas agregar información.'
   };
 
@@ -137,7 +145,14 @@ function sendCustomerConfirmation(request, service) {
     `${copy.message}: ${request.message}`,
     '',
     copy.urgent,
-    `${CONFIG.phoneDisplay} · ${CONFIG.address}`,
+    '',
+    CONFIG.ownerName,
+    copy.signatureRole,
+    CONFIG.businessName,
+    CONFIG.phoneDisplay,
+    CONFIG.ownerEmail,
+    CONFIG.siteUrl,
+    `${copy.signatureRegistration} · ${copy.signatureTagline}`,
     '',
     copy.footer
   ].join('\n');
@@ -161,7 +176,7 @@ function sendCustomerConfirmation(request, service) {
           </div>
           <p style="margin:24px 0 16px">${copy.urgent}</p>
           <a href="${CONFIG.whatsappUrl}" style="display:inline-block;background:#238451;color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:999px">${copy.whatsapp}</a>
-          <p style="font-size:14px;margin:22px 0 0"><strong>${CONFIG.phoneDisplay}</strong><br>${CONFIG.address}</p>
+          ${signatureBlock(copy)}
         </div>
         <div style="padding:18px 30px;background:#f7f7f8;color:#666;font-size:12px">${copy.footer}</div>
       </div>
@@ -184,6 +199,39 @@ function serviceLabel(key, language) {
 
 function detailRow(label, value) {
   return `<div style="display:flex;gap:12px;padding:8px 0;border-bottom:1px solid #e6e6e8"><strong style="min-width:90px">${escapeHtml(label)}</strong><span>${escapeHtml(value || '—')}</span></div>`;
+}
+
+function signatureBlock(copy) {
+  return `
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="width:100%;margin-top:28px;border-collapse:separate;border-spacing:0;border:1px solid #2d2f33;border-radius:14px;overflow:hidden">
+      <tr>
+        <td colspan="2" style="background:#0d0e10;padding:19px 22px;color:#ffffff">
+          <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="width:100%;border-collapse:collapse">
+            <tr>
+              <td width="76" valign="middle" style="width:76px;padding-right:16px">
+                <img src="${CONFIG.logoUrl}" width="64" height="64" alt="ADONAI ELECTRICAL" style="display:block;width:64px;height:64px;border:0;outline:none;text-decoration:none">
+              </td>
+              <td valign="middle" style="font-family:Arial,sans-serif;color:#ffffff">
+                <div style="font-size:18px;line-height:1.25;font-weight:800">${escapeHtml(CONFIG.ownerName)}</div>
+                <div style="font-size:13px;line-height:1.45;color:#d7d9dd;margin-top:3px">${escapeHtml(copy.signatureRole)}</div>
+                <div style="font-size:12px;line-height:1.4;font-weight:800;letter-spacing:1.2px;color:#ffffff;margin-top:5px">${escapeHtml(CONFIG.businessName)}</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top" style="padding:16px 18px;background:#f7f7f8;font-family:Arial,sans-serif;font-size:12px;line-height:1.7;color:#333333">
+          <a href="${CONFIG.whatsappUrl}" style="color:#1b1c1e;text-decoration:none;font-weight:700">${escapeHtml(CONFIG.phoneDisplay)}</a><br>
+          <a href="mailto:${CONFIG.ownerEmail}" style="color:#1b1c1e;text-decoration:none">${escapeHtml(CONFIG.ownerEmail)}</a><br>
+          <a href="${CONFIG.siteUrl}" style="color:#1b1c1e;text-decoration:none">adonaielectrical2026.github.io</a>
+        </td>
+        <td valign="top" align="right" style="padding:16px 18px;background:#f7f7f8;font-family:Arial,sans-serif;font-size:11px;line-height:1.55;color:#666666">
+          <strong style="color:#252629">${escapeHtml(copy.signatureRegistration)}</strong><br>
+          ${escapeHtml(copy.signatureTagline)}
+        </td>
+      </tr>
+    </table>`;
 }
 
 function clean(value, maxLength) {
