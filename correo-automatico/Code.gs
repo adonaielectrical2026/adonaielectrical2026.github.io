@@ -5,7 +5,7 @@ const CONFIG = Object.freeze({
   phoneDisplay: '+598 98 152 423',
   whatsappUrl: 'https://wa.me/59898152423',
   siteUrl: 'https://adonaielectrical2026.github.io',
-  logoUrl: 'https://adonaielectrical2026.github.io/logo-mark-92.webp',
+  logoUrl: 'https://adonaielectrical2026.github.io/logo-email-256.png',
   address: 'Av. Defensa 1599, Salto, Uruguay'
 });
 
@@ -203,32 +203,35 @@ function detailRow(label, value) {
 
 function signatureBlock(copy) {
   return `
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="width:100%;margin-top:28px;border-collapse:separate;border-spacing:0;border:1px solid #2d2f33;border-radius:14px;overflow:hidden">
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="width:100%;max-width:100%;table-layout:fixed;margin-top:28px;border-collapse:separate;border-spacing:0;border:1px solid #2d2f33;border-radius:14px;overflow:hidden">
       <tr>
-        <td colspan="2" style="background:#0d0e10;padding:19px 22px;color:#ffffff">
-          <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="width:100%;border-collapse:collapse">
+        <td style="background:#0d0e10;padding:18px;color:#ffffff">
+          <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="width:100%;max-width:100%;table-layout:fixed;border-collapse:collapse">
             <tr>
-              <td width="76" valign="middle" style="width:76px;padding-right:16px">
-                <img src="${CONFIG.logoUrl}" width="64" height="64" alt="ADONAI ELECTRICAL" style="display:block;width:64px;height:64px;border:0;outline:none;text-decoration:none">
+              <td width="70" valign="middle" style="width:70px;padding-right:12px">
+                <div style="width:58px;height:58px;background:#f1f2f3;border:1px solid #4a4c50;border-radius:50%;overflow:hidden">
+                  <img src="${CONFIG.logoUrl}" width="58" height="58" alt="ADONAI ELECTRICAL" style="display:block;width:58px;height:58px;max-width:58px;border:0;outline:none;text-decoration:none">
+                </div>
               </td>
-              <td valign="middle" style="font-family:Arial,sans-serif;color:#ffffff">
-                <div style="font-size:18px;line-height:1.25;font-weight:800">${escapeHtml(CONFIG.ownerName)}</div>
-                <div style="font-size:13px;line-height:1.45;color:#d7d9dd;margin-top:3px">${escapeHtml(copy.signatureRole)}</div>
-                <div style="font-size:12px;line-height:1.4;font-weight:800;letter-spacing:1.2px;color:#ffffff;margin-top:5px">${escapeHtml(CONFIG.businessName)}</div>
+              <td valign="middle" style="min-width:0;font-family:Arial,sans-serif;color:#ffffff;word-break:normal;overflow-wrap:anywhere">
+                <div style="font-size:18px;line-height:1.25;font-weight:800;white-space:normal">${escapeHtml(CONFIG.ownerName)}</div>
+                <div style="font-size:13px;line-height:1.45;color:#d7d9dd;margin-top:3px;white-space:normal">${escapeHtml(copy.signatureRole)}</div>
+                <div style="font-size:12px;line-height:1.4;font-weight:800;letter-spacing:1.1px;color:#ffffff;margin-top:5px;white-space:normal">${escapeHtml(CONFIG.businessName)}</div>
               </td>
             </tr>
           </table>
         </td>
       </tr>
       <tr>
-        <td valign="top" style="padding:16px 18px;background:#f7f7f8;font-family:Arial,sans-serif;font-size:12px;line-height:1.7;color:#333333">
+        <td valign="top" style="padding:15px 18px 13px;background:#f7f7f8;font-family:Arial,sans-serif;font-size:12px;line-height:1.65;color:#333333;word-break:normal;overflow-wrap:anywhere">
           <a href="${CONFIG.whatsappUrl}" style="color:#1b1c1e;text-decoration:none;font-weight:700">${escapeHtml(CONFIG.phoneDisplay)}</a><br>
-          <a href="mailto:${CONFIG.ownerEmail}" style="color:#1b1c1e;text-decoration:none">${escapeHtml(CONFIG.ownerEmail)}</a><br>
-          <a href="${CONFIG.siteUrl}" style="color:#1b1c1e;text-decoration:none">adonaielectrical2026.github.io</a>
-        </td>
-        <td valign="top" align="right" style="padding:16px 18px;background:#f7f7f8;font-family:Arial,sans-serif;font-size:11px;line-height:1.55;color:#666666">
-          <strong style="color:#252629">${escapeHtml(copy.signatureRegistration)}</strong><br>
-          ${escapeHtml(copy.signatureTagline)}
+          <a href="mailto:${CONFIG.ownerEmail}" style="color:#1b1c1e;text-decoration:none;word-break:break-word;overflow-wrap:anywhere">${escapeHtml(CONFIG.ownerEmail)}</a><br>
+          <a href="${CONFIG.siteUrl}" style="color:#1b1c1e;text-decoration:none;word-break:break-word;overflow-wrap:anywhere">adonaielectrical2026.github.io</a>
+          <div style="height:1px;line-height:1px;background:#d9dadd;margin:12px 0 10px">&nbsp;</div>
+          <div style="font-size:11px;line-height:1.55;color:#666666">
+            <strong style="color:#252629">${escapeHtml(copy.signatureRegistration)}</strong><br>
+            ${escapeHtml(copy.signatureTagline)}
+          </div>
         </td>
       </tr>
     </table>`;
