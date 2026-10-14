@@ -178,6 +178,65 @@ function build() {
       '"description": "Atención de emergencias eléctricas las 24 horas, todos los días.",',
       '"description": "Electrical emergency response 24 hours a day, every day.",'
     );
+    html = html.replace(
+      /<script type="application\/ld\+json" id="faq-schema">[\s\S]*?<\/script>/,
+      `<script type="application/ld+json" id="faq-schema">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where does ADONAI ELECTRICAL work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We work mainly in Salto. For projects in other departments, we assess availability according to the scope, distance and working conditions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is a quote prepared?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We first gather information about the work and location. When necessary, we arrange a site assessment. We then define the scope and present a proposal before work begins."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you respond to electrical emergencies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Emergency service is available 24 hours a day, 7 days a week, subject to availability and distance. If there is a hazardous situation, do not handle the installation and contact us immediately."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which UTE procedures can you assist with?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We provide technical advice and support for new supply, reconnection and contracted-capacity change requests. Each case requires a prior assessment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you install emergency lighting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We install and inspect emergency lights, circuits and protection devices for homes, businesses, industrial sites and DNB-related processes, according to the conditions of each installation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I send photographs or measurements before the site assessment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can start the enquiry through the form and then send photographs, videos or measurements by WhatsApp to help us better understand the work."
+        }
+      }
+    ]
+  }
+  </script>`
+    );
     html = html.replace('name="idioma" value="es"', 'name="idioma" value="en"');
     html = html.replace(
       /<div class="trust-banner__visual">\s*<img[^>]+credencial-adonai-ute\.webp[^>]*>\s*<\/div>/,

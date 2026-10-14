@@ -140,6 +140,62 @@
     ]
   }
   </script>
+  <script type="application/ld+json" id="faq-schema">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where does ADONAI ELECTRICAL work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We work mainly in Salto. For projects in other departments, we assess availability according to the scope, distance and working conditions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is a quote prepared?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We first gather information about the work and location. When necessary, we arrange a site assessment. We then define the scope and present a proposal before work begins."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you respond to electrical emergencies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Emergency service is available 24 hours a day, 7 days a week, subject to availability and distance. If there is a hazardous situation, do not handle the installation and contact us immediately."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which UTE procedures can you assist with?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We provide technical advice and support for new supply, reconnection and contracted-capacity change requests. Each case requires a prior assessment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you install emergency lighting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We install and inspect emergency lights, circuits and protection devices for homes, businesses, industrial sites and DNB-related processes, according to the conditions of each installation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I send photographs or measurements before the site assessment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can start the enquiry through the form and then send photographs, videos or measurements by WhatsApp to help us better understand the work."
+        }
+      }
+    ]
+  }
+  </script>
   <script>
     document.documentElement.classList.add('js');
     (() => {
@@ -156,7 +212,7 @@
 </head>
 
 <body>
-  <!-- Pantalla de Carga / Preloader con Logo y Barra de Progreso -->
+  <!-- Indicador de carga real: no bloquea la portada y desaparece al completar la carga -->
   <div id="app-preloader" class="app-preloader" role="status" aria-label="Loading ADONAI ELECTRICAL">
     <div class="preloader-content">
       <div class="preloader-logo-wrap" aria-hidden="true">
@@ -633,6 +689,59 @@
               <p>Financing is subject to the platform's terms and availability.</p>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preguntas frecuentes -->
+    <section class="section faq-section" id="preguntas-frecuentes" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="faq-heading reveal">
+          <div>
+            <p class="eyebrow">Frequently asked questions</p>
+            <h2 id="faq-title">Clear answers before getting started.</h2>
+          </div>
+          <p class="lead">Useful information to prepare an enquiry, coordinate a quote and understand the scope of our services.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>Where does ADONAI ELECTRICAL work?</summary>
+            <div class="faq-answer"><p>We work mainly in Salto. For projects in other departments, we assess availability according to the scope, distance and working conditions.</p></div>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>How is a quote prepared?</summary>
+            <div class="faq-answer"><p>We first gather information about the work and location. When necessary, we arrange a site assessment. We then define the scope and present a proposal before work begins.</p></div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Do you respond to electrical emergencies?</summary>
+            <div class="faq-answer"><p>Yes. Emergency service is available 24 hours a day, 7 days a week, subject to availability and distance. If there is a hazardous situation, do not handle the installation and contact us immediately.</p></div>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>Which UTE procedures can you assist with?</summary>
+            <div class="faq-answer"><p>We provide technical advice and support for new supply, reconnection and contracted-capacity change requests. Each case requires a prior assessment.</p></div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Do you install emergency lighting?</summary>
+            <div class="faq-answer"><p>Yes. We install and inspect emergency lights, circuits and protection devices for homes, businesses, industrial sites and DNB-related processes, according to the conditions of each installation.</p></div>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>Can I send photographs or measurements before the site assessment?</summary>
+            <div class="faq-answer"><p>Yes. You can start the enquiry through the form and then send photographs, videos or measurements by WhatsApp to help us better understand the work.</p></div>
+          </details>
+        </div>
+
+        <div class="faq-contact reveal">
+          <div>
+            <h3>Is your question not answered here?</h3>
+            <p>Tell us what you need and we will assess your case.</p>
+          </div>
+          <a class="btn btn--dark" href="#contacto">Make an enquiry</a>
         </div>
       </div>
     </section>

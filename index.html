@@ -140,6 +140,62 @@
     ]
   }
   </script>
+  <script type="application/ld+json" id="faq-schema">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿En qué zonas trabaja ADONAI ELECTRICAL?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Trabajamos principalmente en Salto. Para proyectos en otros departamentos, evaluamos la disponibilidad según el alcance, la distancia y las condiciones del trabajo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo se prepara un presupuesto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Primero recopilamos información sobre el trabajo y la ubicación. Cuando es necesario, coordinamos un relevamiento. Luego definimos el alcance y presentamos una propuesta antes de comenzar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Atienden emergencias eléctricas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Las emergencias se atienden las 24 horas, los 7 días de la semana, sujetas a disponibilidad y distancia. Ante una situación de riesgo, no manipules la instalación y comunícate de inmediato."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué trámites ante UTE pueden gestionar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Brindamos asesoramiento técnico y acompañamiento para solicitudes de suministro, rehabilitación y modificación de potencia contratada. Cada caso requiere una evaluación previa."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Instalan iluminación de emergencia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Instalamos y revisamos luminarias de emergencia, circuitos y protecciones para viviendas, comercios, industrias y procesos vinculados a DNB, según las condiciones de cada instalación."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo enviar fotografías o medidas antes del relevamiento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Puedes iniciar la consulta desde el formulario y luego enviar fotografías, videos o medidas por WhatsApp para ayudarnos a comprender mejor el trabajo."
+        }
+      }
+    ]
+  }
+  </script>
   <script>
     document.documentElement.classList.add('js');
     (() => {
@@ -156,7 +212,7 @@
 </head>
 
 <body>
-  <!-- Pantalla de Carga / Preloader con Logo y Barra de Progreso -->
+  <!-- Indicador de carga real: no bloquea la portada y desaparece al completar la carga -->
   <div id="app-preloader" class="app-preloader" role="status" aria-label="Cargando ADONAI ELECTRICAL">
     <div class="preloader-content">
       <div class="preloader-logo-wrap" aria-hidden="true">
@@ -620,6 +676,59 @@
               <p>Financiación sujeta a las condiciones y disponibilidad de la plataforma.</p>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preguntas frecuentes -->
+    <section class="section faq-section" id="preguntas-frecuentes" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="faq-heading reveal">
+          <div>
+            <p class="eyebrow">Preguntas frecuentes</p>
+            <h2 id="faq-title">Respuestas claras antes de comenzar.</h2>
+          </div>
+          <p class="lead">Información útil para preparar una consulta, coordinar un presupuesto y conocer el alcance de nuestros servicios.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>¿En qué zonas trabaja ADONAI ELECTRICAL?</summary>
+            <div class="faq-answer"><p>Trabajamos principalmente en Salto. Para proyectos en otros departamentos, evaluamos la disponibilidad según el alcance, la distancia y las condiciones del trabajo.</p></div>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>¿Cómo se prepara un presupuesto?</summary>
+            <div class="faq-answer"><p>Primero recopilamos información sobre el trabajo y la ubicación. Cuando es necesario, coordinamos un relevamiento. Luego definimos el alcance y presentamos una propuesta antes de comenzar.</p></div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>¿Atienden emergencias eléctricas?</summary>
+            <div class="faq-answer"><p>Sí. Las emergencias se atienden las 24 horas, los 7 días de la semana, sujetas a disponibilidad y distancia. Ante una situación de riesgo, no manipules la instalación y comunícate de inmediato.</p></div>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>¿Qué trámites ante UTE pueden gestionar?</summary>
+            <div class="faq-answer"><p>Brindamos asesoramiento técnico y acompañamiento para solicitudes de suministro, rehabilitación y modificación de potencia contratada. Cada caso requiere una evaluación previa.</p></div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>¿Instalan iluminación de emergencia?</summary>
+            <div class="faq-answer"><p>Sí. Instalamos y revisamos luminarias de emergencia, circuitos y protecciones para viviendas, comercios, industrias y procesos vinculados a DNB, según las condiciones de cada instalación.</p></div>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>¿Puedo enviar fotografías o medidas antes del relevamiento?</summary>
+            <div class="faq-answer"><p>Sí. Puedes iniciar la consulta desde el formulario y luego enviar fotografías, videos o medidas por WhatsApp para ayudarnos a comprender mejor el trabajo.</p></div>
+          </details>
+        </div>
+
+        <div class="faq-contact reveal">
+          <div>
+            <h3>¿Tu consulta no aparece aquí?</h3>
+            <p>Cuéntanos qué necesitas y evaluaremos tu caso.</p>
+          </div>
+          <a class="btn btn--dark" href="#contacto">Hacer una consulta</a>
         </div>
       </div>
     </section>

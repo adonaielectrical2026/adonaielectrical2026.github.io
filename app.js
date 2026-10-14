@@ -473,6 +473,24 @@
         "Contenido técnico. Los planos y esquemas son referencias de trabajos propios. No sustituyen un relevamiento ni un proyecto firmado, ni sirven de guía para ejecutar una instalación por cuenta propia: toda instalación conectada a las redes de UTE debe ejecutarla una firma instaladora y un técnico registrados.": "Technical content. The plans and diagrams are references from our own work. They do not replace a site survey or a signed project, nor serve as a guide to carry out an installation yourself: any installation connected to the UTE grid must be done by a registered installation firm and technician.",
         "Galería. Las fotografías son registros de trabajos realizados; cuando acompañan a un plano son ejemplos independientes, no la ejecución de ese plano.": "Gallery. The photographs are records of completed work; when shown with a plan they are independent examples, not the execution of that plan.",
         "Emergencias. Se atienden las 24 horas, todos los días, sujeto a la disponibilidad del equipo y la distancia. Los horarios administrativos son los de la sección Contacto.": "Emergencies. Attended 24 hours a day, every day, subject to team availability and distance. Administrative hours are those in the Contact section.",
+        "Preguntas frecuentes": "Frequently asked questions",
+        "Respuestas claras antes de comenzar.": "Clear answers before getting started.",
+        "Información útil para preparar una consulta, coordinar un presupuesto y conocer el alcance de nuestros servicios.": "Useful information to prepare an enquiry, coordinate a quote and understand the scope of our services.",
+        "¿En qué zonas trabaja ADONAI ELECTRICAL?": "Where does ADONAI ELECTRICAL work?",
+        "Trabajamos principalmente en Salto. Para proyectos en otros departamentos, evaluamos la disponibilidad según el alcance, la distancia y las condiciones del trabajo.": "We work mainly in Salto. For projects in other departments, we assess availability according to the scope, distance and working conditions.",
+        "¿Cómo se prepara un presupuesto?": "How is a quote prepared?",
+        "Primero recopilamos información sobre el trabajo y la ubicación. Cuando es necesario, coordinamos un relevamiento. Luego definimos el alcance y presentamos una propuesta antes de comenzar.": "We first gather information about the work and location. When necessary, we arrange a site assessment. We then define the scope and present a proposal before work begins.",
+        "¿Atienden emergencias eléctricas?": "Do you respond to electrical emergencies?",
+        "Sí. Las emergencias se atienden las 24 horas, los 7 días de la semana, sujetas a disponibilidad y distancia. Ante una situación de riesgo, no manipules la instalación y comunícate de inmediato.": "Yes. Emergency service is available 24 hours a day, 7 days a week, subject to availability and distance. If there is a hazardous situation, do not handle the installation and contact us immediately.",
+        "¿Qué trámites ante UTE pueden gestionar?": "Which UTE procedures can you assist with?",
+        "Brindamos asesoramiento técnico y acompañamiento para solicitudes de suministro, rehabilitación y modificación de potencia contratada. Cada caso requiere una evaluación previa.": "We provide technical advice and support for new supply, reconnection and contracted-capacity change requests. Each case requires a prior assessment.",
+        "¿Instalan iluminación de emergencia?": "Do you install emergency lighting?",
+        "Sí. Instalamos y revisamos luminarias de emergencia, circuitos y protecciones para viviendas, comercios, industrias y procesos vinculados a DNB, según las condiciones de cada instalación.": "Yes. We install and inspect emergency lights, circuits and protection devices for homes, businesses, industrial sites and DNB-related processes, according to the conditions of each installation.",
+        "¿Puedo enviar fotografías o medidas antes del relevamiento?": "Can I send photographs or measurements before the site assessment?",
+        "Sí. Puedes iniciar la consulta desde el formulario y luego enviar fotografías, videos o medidas por WhatsApp para ayudarnos a comprender mejor el trabajo.": "Yes. You can start the enquiry through the form and then send photographs, videos or measurements by WhatsApp to help us better understand the work.",
+        "¿Tu consulta no aparece aquí?": "Is your question not answered here?",
+        "Cuéntanos qué necesitas y evaluaremos tu caso.": "Tell us what you need and we will assess your case.",
+        "Hacer una consulta": "Make an enquiry",
         "Propiedad intelectual y enlaces. El nombre, el logotipo, los textos y las imágenes de ADONAI ELECTRICAL no pueden usarse sin autorización escrita. El sitio enlaza a plataformas de terceros sobre cuyo contenido no tenemos control. Rige la legislación de la República Oriental del Uruguay.": "Intellectual property and links. The ADONAI ELECTRICAL name, logo, texts and images may not be used without written permission. The site links to third-party platforms whose content we do not control. Uruguayan law applies."
   });
 
@@ -628,11 +646,10 @@
       const preloader = document.getElementById('app-preloader');
       const preloaderBarFill = document.getElementById('preloader-bar-fill');
       const preloaderStatus = document.getElementById('preloader-status');
-      let preloaderAnimationTimer = null;
 
-      /* La pantalla de carga se oculta cuando la página terminó de cargar de
-         verdad, con un tope de 1,5 s para que nunca demore de más. El respaldo
-         en CSS la destapa aunque este script falle. */
+      /* La portada es visible desde el primer instante. Esta línea de actividad
+         desaparece cuando la página terminó de cargar de verdad; el tope solo
+         evita que quede visible si un recurso externo se demora indefinidamente. */
       function hidePreloader() {
         if (!preloader || preloader.classList.contains('is-hidden')) return;
         if (preloaderBarFill) {
@@ -647,7 +664,7 @@
         hidePreloader();
       } else {
         window.addEventListener('load', hidePreloader, { once: true });
-        setTimeout(hidePreloader, 1500);
+        setTimeout(hidePreloader, 4000);
       }
 
       /* Navegación móvil y clicks suaves */

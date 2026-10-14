@@ -43,6 +43,30 @@ for (const [relativePath, language] of [['index.html', 'es'], ['en/index.html', 
   if (/formsubmit\.co|_autoresponse|name="_next"/.test(html)) {
     errors.push(`${relativePath}: conserva configuración obsoleta de FormSubmit.`);
   }
+  if (!html.includes('id="preguntas-frecuentes"')) {
+    errors.push(`${relativePath}: falta la sección de preguntas frecuentes.`);
+  }
+  const faqMatch = html.match(/<script type="application\/ld\+json" id="faq-schema">([\s\S]*?)<\/script>/);
+  if (!faqMatch) {
+    errors.push(`${relativePath}: falta el marcado estructurado FAQPage.`);
+  } else {
+    try {
+      const faqSchema = JSON.parse(faqMatch[1]);
+      if (faqSchema['@type'] !== 'FAQPage' || faqSchema.mainEntity?.length !== 6) {
+        errors.push(`${relativePath}: el marcado FAQPage no contiene las seis preguntas esperadas.`);
+      }
+    } catch (error) {
+      errors.push(`${relativePath}: el marcado FAQPage no es JSON válido.`);
+    }
+  }
+}
+
+const appSource = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+if (!appSource.includes('setTimeout(hidePreloader, 4000)')) {
+  errors.push('Carga inicial: falta el respaldo de cuatro segundos para el indicador no bloqueante.');
+}
+if (appSource.includes('setTimeout(hidePreloader, 1500)')) {
+  errors.push('Carga inicial: conserva el tiempo simulado anterior.');
 }
 
 const mailSource = fs.readFileSync(path.join(root, 'correo-automatico', 'Code.gs'), 'utf8');
