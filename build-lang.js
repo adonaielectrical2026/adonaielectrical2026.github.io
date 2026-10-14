@@ -179,6 +179,25 @@ function build() {
       '"description": "Electrical emergency response 24 hours a day, every day.",'
     );
     html = html.replace('name="idioma" value="es"', 'name="idioma" value="en"');
+    html = html.replace(
+      /<div class="trust-banner__visual">\s*<img[^>]+credencial-adonai-ute\.webp[^>]*>\s*<\/div>/,
+      `<div class="trust-banner__visual">
+            <div class="credential-mosaic" role="img" aria-label="ADONAI ELECTRICAL, residential and industrial electrical services in Salto: projects, renovations, maintenance and emergencies">
+              <div class="credential-mosaic__content">
+                <div class="credential-mosaic__brand">
+                  <strong>ADONAI<br>ELECTRICAL</strong>
+                  <img src="/logo-mark-92.webp" alt="" width="92" height="92" aria-hidden="true" loading="lazy" decoding="async">
+                </div>
+                <p class="credential-mosaic__authorisation">Installation firm and technician authorised by <strong>UTE</strong></p>
+                <div class="credential-mosaic__services">
+                  <strong>Residential and industrial electrical services</strong>
+                  <span>Projects · Renovations · Maintenance · Emergencies</span>
+                </div>
+                <p class="credential-mosaic__location">Salto, Uruguay</p>
+              </div>
+            </div>
+          </div>`
+    );
   }
 
   // hreflang: apuntar cada variante a su propia URL, sin duplicar la propia.
