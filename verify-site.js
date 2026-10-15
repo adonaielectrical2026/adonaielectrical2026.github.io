@@ -7,6 +7,7 @@ const root = __dirname;
 const formEndpoint = 'https://script.google.com/macros/s/AKfycbxHTMyb5a34w6k1IhQCO7Mw3L-q3Y-p4DLwt__obO0sI9mZJQqqiXG_2aQi48yOdpserA/exec';
 const uteRegistryUrl = 'https://portal.ute.com.uy/firmas-y-tecnicos-instaladores/listado';
 const mapsUrl = 'https://maps.app.goo.gl/V9LVF2VNXMjx3SFZ6';
+const googleReviewUrl = 'https://g.page/r/CUgHjpQLLkMVEBM/review';
 const serviceRoutes = [
   ['proyectos-electricos-en-salto', 'electrical-projects-in-salto'],
   ['remodelaciones-electricas-en-salto', 'electrical-renovations-in-salto'],
@@ -95,6 +96,12 @@ for (const [relativePath, language] of [['index.html', 'es'], ['en/index.html', 
   }
   if (!html.includes('id="preguntas-frecuentes"')) {
     errors.push(`${relativePath}: falta la sección de preguntas frecuentes.`);
+  }
+  if (!html.includes(`href="${googleReviewUrl}"`)) {
+    errors.push(`${relativePath}: falta el enlace directo para dejar una opinión en Google.`);
+  }
+  if (!html.includes('google-review-qr.svg')) {
+    errors.push(`${relativePath}: falta el código QR para opiniones de Google.`);
   }
   const faqMatch = html.match(/<script type="application\/ld\+json" id="faq-schema">([\s\S]*?)<\/script>/);
   if (!faqMatch) {

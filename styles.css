@@ -1196,6 +1196,38 @@ html[data-theme="dark"] .process-mark img { filter: none; }
 }
 .testimonial-note h3 { margin-bottom: 6px; }
 .testimonial-note p:last-child { margin: 0; color: var(--steel); line-height: 1.6; }
+.testimonial-note__content { max-width: 650px; }
+.testimonial-note__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.review-qr {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  color: var(--steel);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+}
+.review-qr img {
+  display: block;
+  width: 96px;
+  height: 96px;
+  padding: 6px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.review-button { white-space: nowrap; }
+.review-button__star {
+  margin-right: 7px;
+  color: #fbbc04;
+  font-size: 1.08em;
+}
 
 @media (min-width: 760px) {
   .trust-banner__visual { display: block; }
@@ -1206,6 +1238,7 @@ html[data-theme="dark"] .process-mark img { filter: none; }
   .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .process-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .testimonial-note { grid-template-columns: minmax(0, 1fr) auto; padding: 28px 30px; }
+  .review-qr { display: grid; }
 }
 
 @media (min-width: 1024px) {
@@ -1565,6 +1598,22 @@ a.contact-item:hover { border-color: var(--steel); transform: translateX(3px); }
 }
 
 .footer-brand .footer-description { max-width: 460px; margin: 0; color: #a8aaae; }
+.footer-review-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 18px;
+  padding: 9px 13px;
+  color: #ffffff;
+  border: 1px solid #3a3b40;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 750;
+  transition: color var(--transition), border-color var(--transition), transform var(--transition);
+}
+.footer-review-link span { color: #fbbc04; font-size: 0.68rem; letter-spacing: 0.06em; }
+.footer-review-link:hover,
+.footer-review-link:focus-visible { color: #ffffff; border-color: #777980; transform: translateY(-2px); }
 .footer-title { margin-bottom: 14px; color: #ffffff; font-size: 0.92rem; letter-spacing: 0; }
 
 .social-list {
