@@ -4,7 +4,7 @@ const path = require('path');
 
 const root = __dirname;
 const site = 'https://adonaielectrical2026.github.io';
-const updated = '2026-10-13';
+const updated = new Date().toISOString().slice(0, 10);
 
 const services = [
   {

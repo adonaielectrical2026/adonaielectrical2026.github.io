@@ -10,7 +10,14 @@
     '/servicios/electricista-de-emergencia-en-salto/': 'emergencias',
     '/servicios/iluminacion-de-emergencia-en-salto/': 'iluminacion',
     '/servicios/tramites-ute-en-salto/': 'tramites',
-    '/servicios/instalacion-camaras-seguridad-en-salto/': 'camaras'
+    '/servicios/instalacion-camaras-seguridad-en-salto/': 'camaras',
+    '/en/services/electrical-projects-in-salto/': 'proyectos',
+    '/en/services/electrical-renovations-in-salto/': 'remodelaciones',
+    '/en/services/electrical-maintenance-in-salto/': 'mantenimiento',
+    '/en/services/emergency-electrician-in-salto/': 'emergencias',
+    '/en/services/emergency-lighting-in-salto/': 'iluminacion',
+    '/en/services/ute-procedures-in-salto/': 'tramites',
+    '/en/services/security-camera-installation-in-salto/': 'camaras'
   };
 
   const normalizedPath = window.location.pathname.endsWith('/')
@@ -19,8 +26,8 @@
   const currentService = serviceByPath[normalizedPath];
 
   if (currentService) {
-    const quoteUrl = `/?servicio=${encodeURIComponent(currentService)}#contacto`;
-    document.querySelectorAll('a[href="/#contacto"]').forEach(link => {
+    const quoteUrl = `${isEnglish ? '/en/' : '/'}?servicio=${encodeURIComponent(currentService)}#contacto`;
+    document.querySelectorAll('a[href="/#contacto"], a[href="/en/#contacto"]').forEach(link => {
       link.href = quoteUrl;
     });
   }

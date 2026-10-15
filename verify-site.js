@@ -7,10 +7,20 @@ const root = __dirname;
 const formEndpoint = 'https://script.google.com/macros/s/AKfycbxHTMyb5a34w6k1IhQCO7Mw3L-q3Y-p4DLwt__obO0sI9mZJQqqiXG_2aQi48yOdpserA/exec';
 const uteRegistryUrl = 'https://portal.ute.com.uy/firmas-y-tecnicos-instaladores/listado';
 const mapsUrl = 'https://maps.app.goo.gl/V9LVF2VNXMjx3SFZ6';
+const serviceRoutes = [
+  ['proyectos-electricos-en-salto', 'electrical-projects-in-salto'],
+  ['remodelaciones-electricas-en-salto', 'electrical-renovations-in-salto'],
+  ['mantenimiento-electrico-en-salto', 'electrical-maintenance-in-salto'],
+  ['electricista-de-emergencia-en-salto', 'emergency-electrician-in-salto'],
+  ['iluminacion-de-emergencia-en-salto', 'emergency-lighting-in-salto'],
+  ['tramites-ute-en-salto', 'ute-procedures-in-salto'],
+  ['instalacion-camaras-seguridad-en-salto', 'security-camera-installation-in-salto']
+];
 const pages = [
   'index.html',
   'en/index.html',
-  ...fs.readdirSync(path.join(root, 'servicios')).map(slug => `servicios/${slug}/index.html`)
+  ...serviceRoutes.map(([slug]) => `servicios/${slug}/index.html`),
+  ...serviceRoutes.map(([, slug]) => `en/services/${slug}/index.html`)
 ];
 const errors = [];
 
@@ -31,6 +41,37 @@ for (const relativePath of pages) {
       : path.resolve(path.dirname(filePath), cleanPath);
     if (cleanPath.endsWith('/')) target = path.join(target, 'index.html');
     if (!fs.existsSync(target)) errors.push(`${relativePath}: no existe ${url}`);
+  }
+}
+
+const englishHome = fs.readFileSync(path.join(root, 'en', 'index.html'), 'utf8');
+if (/href="\/servicios\//.test(englishHome)) {
+  errors.push('en/index.html: conserva enlaces hacia páginas de servicio en español.');
+}
+if (englishHome.includes('Ver información completa')) {
+  errors.push('en/index.html: conserva llamados a la acción en español.');
+}
+for (const [spanishSlug, englishSlug] of serviceRoutes) {
+  const relativePath = `en/services/${englishSlug}/index.html`;
+  const html = fs.readFileSync(path.join(root, relativePath), 'utf8');
+  if (!html.includes('<html lang="en" data-static-lang="en">')) {
+    errors.push(`${relativePath}: no declara el idioma inglés.`);
+  }
+  if (!html.includes(`rel="canonical" href="https://adonaielectrical2026.github.io/en/services/${englishSlug}/"`)) {
+    errors.push(`${relativePath}: canonical incorrecto.`);
+  }
+  if (!html.includes(`href="/servicios/${spanishSlug}/"`) || !html.includes('>ES</a>')) {
+    errors.push(`${relativePath}: falta el cambio a la versión española.`);
+  }
+  if (/Ver información completa|Pedir presupuesto|Consultar por WhatsApp|Volver al sitio principal/.test(html)) {
+    errors.push(`${relativePath}: conserva interfaz visible en español.`);
+  }
+}
+
+const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+for (const [, englishSlug] of serviceRoutes) {
+  if (!sitemap.includes(`<loc>${`https://adonaielectrical2026.github.io/en/services/${englishSlug}/`}</loc>`)) {
+    errors.push(`sitemap.xml: falta la página inglesa ${englishSlug}.`);
   }
 }
 

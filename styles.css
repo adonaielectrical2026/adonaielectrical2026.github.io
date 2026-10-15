@@ -533,6 +533,8 @@ html[data-theme="dark"] .theme-toggle .sun-icon { display: block; }
 }
 
 .hero-copy {
+  position: relative;
+  z-index: 1;
   max-width: 100%;
   padding: 16px 0 24px;
 }
@@ -572,6 +574,8 @@ html[data-theme="dark"] .theme-toggle .sun-icon { display: block; }
 }
 
 .hero-principles {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 24px;
@@ -2185,6 +2189,7 @@ html[data-theme="dark"] .preloader-bar-fill {
 .service-page-brand img { width: 46px; height: 46px; object-fit: contain; }
 .service-page-header__actions { display: flex; align-items: center; gap: 8px; }
 .service-page-theme-toggle { flex: 0 0 auto; }
+.service-page-language { color: var(--black); font-size: 0.72rem; font-weight: 900; text-decoration: none; }
 .service-page-header .btn { min-height: 44px; padding: 10px 16px; }
 .service-page-hero { padding: 48px 0; background: linear-gradient(135deg, var(--hero-start), var(--hero-end)); }
 .service-page-hero__grid { display: grid; align-items: center; gap: 32px; }

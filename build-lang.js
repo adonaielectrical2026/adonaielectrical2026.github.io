@@ -21,6 +21,15 @@ if (!LANG) {
 
 const ROOT = __dirname;
 const SITE_URL = 'https://adonaielectrical2026.github.io';
+const englishServiceRoutes = {
+  'proyectos-electricos-en-salto': 'electrical-projects-in-salto',
+  'remodelaciones-electricas-en-salto': 'electrical-renovations-in-salto',
+  'mantenimiento-electrico-en-salto': 'electrical-maintenance-in-salto',
+  'electricista-de-emergencia-en-salto': 'emergency-electrician-in-salto',
+  'iluminacion-de-emergencia-en-salto': 'emergency-lighting-in-salto',
+  'tramites-ute-en-salto': 'ute-procedures-in-salto',
+  'instalacion-camaras-seguridad-en-salto': 'security-camera-installation-in-salto'
+};
 
 /* ---------- 1. Cargar el diccionario de traducciones desde app.js ---------- */
 function loadTranslations() {
@@ -168,7 +177,10 @@ function build() {
 
   // JSON-LD: traducir campos de texto clave manualmente (alcance acotado, no todo el documento).
   if (LANG === 'en') {
+    html = html.replace('content="ADONAI ELECTRICAL — Energía con propósito"', 'content="ADONAI ELECTRICAL — Energy with purpose"');
     html = html.replace('"slogan": "Energía con propósito",', '"slogan": "Energy with purpose",');
+    html = html.replace('"credentialCategory": "Firma Instaladora autorizada por UTE",', '"credentialCategory": "Installation firm authorised by UTE",');
+    html = html.replace('"credentialCategory": "Técnico Instalador Categoría C autorizado por UTE",', '"credentialCategory": "UTE-authorised Category C Installer Technician",');
     html = html.replace(
       '"description": "Instalaciones eléctricas residenciales e industriales en Salto, Uruguay: proyectos nuevos, remodelaciones, mantenimiento, emergencias, iluminación de emergencia y trámites ante UTE.",',
       '"description": "Residential and industrial electrical installations in Salto, Uruguay: new projects, renovations, maintenance, emergencies, emergency lighting and UTE paperwork.",'
@@ -238,6 +250,13 @@ function build() {
   </script>`
     );
     html = html.replace('name="idioma" value="es"', 'name="idioma" value="en"');
+    Object.entries(englishServiceRoutes).forEach(([spanishSlug, englishSlug]) => {
+      html = html.replaceAll(`/servicios/${spanishSlug}/`, `/en/services/${englishSlug}/`);
+    });
+    html = html.replaceAll(
+      'https://wa.me/59898152423?text=Hola%20ADONAI%20ELECTRICAL%2C%20quisiera%20realizar%20una%20consulta.',
+      'https://wa.me/59898152423?text=Hello%20ADONAI%20ELECTRICAL%2C%20I%20would%20like%20to%20make%20an%20inquiry.'
+    );
     html = html.replace(
       /<div class="trust-banner__visual">\s*<img[^>]+credencial-adonai-ute\.webp[^>]*>\s*<\/div>/,
       `<div class="trust-banner__visual">
