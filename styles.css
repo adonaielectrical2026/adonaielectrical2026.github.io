@@ -2330,6 +2330,7 @@ html[data-theme="dark"] .preloader-bar-fill {
   .service-page-project__cta .btn { justify-self: end; }
   .service-page-evidence__heading { grid-template-columns: minmax(0, 1fr) minmax(280px, .7fr); }
   .service-page-evidence__gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .service-page-evidence__gallery--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .service-page-related { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .service-page-cta .container { grid-template-columns: minmax(0, 1fr) auto; }
 }

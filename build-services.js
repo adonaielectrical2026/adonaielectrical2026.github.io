@@ -65,8 +65,10 @@ const services = [
     evidence: {
       title: 'Registros para diagnóstico y mantenimiento.',
       description: 'Documentamos el estado encontrado antes de definir las reparaciones o sustituciones necesarias.',
-      note: 'Las fotografías muestran condiciones previas al acondicionamiento; no representan la terminación del trabajo.',
+      note: 'Las fotografías muestran condiciones encontradas antes o durante la intervención; no representan la terminación final del trabajo.',
+      layout: 'four',
       images: [
+        { src: 'mantenimiento-falla-tomacorrientes.jpeg', alt: 'Tomacorrientes desmontados y conductores expuestos durante el diagnóstico de una falla eléctrica', title: 'Falla en tomacorrientes', caption: 'Estado encontrado ante parpadeo de iluminación y chispeo al conectar equipos.', position: 'top' },
         { src: 'protecciones.webp', alt: 'Protecciones y conductores dentro de un gabinete antes del acondicionamiento', title: 'Protecciones eléctricas', caption: 'Revisión del estado de un gabinete existente.' },
         { src: 'luminaria-exterior.webp', alt: 'Luminaria exterior con una rotura visible en su carcasa', title: 'Daño en luminaria exterior', caption: 'Registro previo a la intervención.' },
         { src: 'luminaria-desprendida.webp', alt: 'Luminaria exterior desprendida de su base sobre el césped', title: 'Punto a acondicionar', caption: 'Evaluación de una luminaria desprendida.' }
@@ -184,7 +186,7 @@ function page(service) {
           <div><p class="eyebrow">${esc(service.evidence.eyebrow || 'Trabajos realizados')}</p><h2 id="evidence-${service.slug}">${esc(service.evidence.title)}</h2></div>
           <p>${esc(service.evidence.description)}</p>
         </header>
-        <div class="service-page-evidence__gallery">
+        <div class="service-page-evidence__gallery${service.evidence.layout ? ` service-page-evidence__gallery--${service.evidence.layout}` : ''}">
           ${service.evidence.images.map(image => `<figure><a class="service-page-photo-link" href="/${image.src}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ${esc(image.title)} en tamaño completo"><img${image.position ? ` class="service-page-photo--${image.position}"` : ''} src="/${image.src}" alt="${esc(image.alt)}" loading="lazy" decoding="async"></a><figcaption><strong>${esc(image.title)}</strong><span>${esc(image.caption)}</span></figcaption></figure>`).join('')}
         </div>
 ${service.evidence.note ? `        <p class="service-page-evidence__note">${esc(service.evidence.note)}</p>` : ''}
