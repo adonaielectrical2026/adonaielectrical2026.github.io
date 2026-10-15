@@ -125,7 +125,13 @@ const services = [
     name: 'Instalación de cámaras de seguridad en Salto',
     short: 'Cámaras de seguridad',
     description: 'Instalación de cámaras de seguridad y sistemas de videovigilancia para viviendas, comercios e industrias en Salto.',
-    image: 'camara-terminada.webp',
+    image: 'camara-seguridad-exterior-portada.jpeg',
+    hero: {
+      src: 'camara-seguridad-exterior-portada.jpeg',
+      alt: 'Cámara de seguridad exterior instalada bajo el alero de una vivienda en Salto',
+      width: 1152,
+      height: 2048
+    },
     intro: 'Instalamos sistemas de videovigilancia con una ubicación planificada de cámaras, tendido protegido y configuración inicial según las necesidades del lugar.',
     items: ['Evaluación de zonas a supervisar', 'Instalación y orientación de cámaras', 'Cableado, alimentación y conexiones', 'Configuración inicial y verificación del sistema'],
     search: 'instalación de cámaras en Salto',
