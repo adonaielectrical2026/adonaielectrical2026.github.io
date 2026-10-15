@@ -304,6 +304,7 @@ function translateAttributes(html) {
 
 function mapServiceUrl(value) {
   let mapped = value;
+  if (mapped === `${site}/#business`) return mapped;
   routes.forEach(route => {
     mapped = mapped.replaceAll(`/servicios/${route.es}/`, `/en/services/${route.en}/`);
   });
@@ -334,6 +335,10 @@ function translateJsonLd(html) {
 
 function alternateLinks(spanishUrl, englishUrl) {
   return `<link rel="alternate" hreflang="es" href="${spanishUrl}">\n  <link rel="alternate" hreflang="en" href="${englishUrl}">\n  <link rel="alternate" hreflang="x-default" href="${spanishUrl}">`;
+}
+
+function sitemapAlternateLinks(spanishUrl, englishUrl) {
+  return `<xhtml:link rel="alternate" hreflang="es" href="${spanishUrl}" />\n  <xhtml:link rel="alternate" hreflang="en" href="${englishUrl}" />\n  <xhtml:link rel="alternate" hreflang="x-default" href="${spanishUrl}" />`;
 }
 
 function enrichSpanishPage(html, route) {
@@ -387,14 +392,14 @@ for (const route of routes) {
   fs.writeFileSync(path.join(outputDir, 'index.html'), englishPage(spanishHtml, route), 'utf8');
 }
 
-const homeAlternates = alternateLinks(`${site}/`, `${site}/en/`);
+const homeAlternates = sitemapAlternateLinks(`${site}/`, `${site}/en/`);
 const sitemapEntries = [
   { loc: `${site}/`, priority: '1.0', alternates: homeAlternates },
   { loc: `${site}/en/`, priority: '0.8', alternates: homeAlternates },
   ...routes.flatMap(route => {
     const spanishUrl = `${site}/servicios/${route.es}/`;
     const englishUrl = `${site}/en/services/${route.en}/`;
-    const alternates = alternateLinks(spanishUrl, englishUrl);
+    const alternates = sitemapAlternateLinks(spanishUrl, englishUrl);
     return [
       { loc: spanishUrl, priority: '0.8', alternates },
       { loc: englishUrl, priority: '0.8', alternates }

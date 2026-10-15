@@ -32,6 +32,27 @@ for (const relativePath of pages) {
   const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
   if (duplicateIds.length) errors.push(`${relativePath}: IDs duplicados: ${duplicateIds.join(', ')}`);
 
+  const title = html.match(/<title>([^<]+)<\/title>/)?.[1]?.trim();
+  const description = html.match(/<meta name="description" content="([^"]+)">/)?.[1]?.trim();
+  const canonical = html.match(/<link rel="canonical" href="([^"]+)">/)?.[1];
+  const h1Count = (html.match(/<h1\b/g) || []).length;
+  if (!title || title.length < 20 || title.length > 70) errors.push(`${relativePath}: título SEO ausente o fuera de rango.`);
+  if (!description || description.length < 70 || description.length > 170) errors.push(`${relativePath}: descripción SEO ausente o fuera de rango.`);
+  if (!canonical) errors.push(`${relativePath}: falta la URL canónica.`);
+  if (h1Count !== 1) errors.push(`${relativePath}: debe contener exactamente un H1; tiene ${h1Count}.`);
+  for (const language of ['es', 'en', 'x-default']) {
+    if (!html.includes(`rel="alternate" hreflang="${language}"`)) {
+      errors.push(`${relativePath}: falta hreflang ${language}.`);
+    }
+  }
+  for (const match of html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+    try {
+      JSON.parse(match[1]);
+    } catch (error) {
+      errors.push(`${relativePath}: contiene JSON-LD inválido.`);
+    }
+  }
+
   for (const match of html.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
     const url = match[1];
     if (/^(?:https?:|mailto:|tel:|#|data:)/.test(url)) continue;
@@ -67,9 +88,23 @@ for (const [spanishSlug, englishSlug] of serviceRoutes) {
   if (/Ver información completa|Pedir presupuesto|Consultar por WhatsApp|Volver al sitio principal/.test(html)) {
     errors.push(`${relativePath}: conserva interfaz visible en español.`);
   }
+  if (!html.includes('"@id":"https://adonaielectrical2026.github.io/#business"')) {
+    errors.push(`${relativePath}: el servicio no enlaza con la entidad principal del negocio.`);
+  }
 }
 
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
+const sitemapAlternates = [...sitemap.matchAll(/<xhtml:link rel="alternate" hreflang="(?:es|en|x-default)" href="[^"]+" \/>/g)];
+if (sitemapLocations.length !== pages.length) {
+  errors.push(`sitemap.xml: contiene ${sitemapLocations.length} URL; se esperaban ${pages.length}.`);
+}
+if (sitemapAlternates.length !== pages.length * 3) {
+  errors.push(`sitemap.xml: las referencias de idioma no son válidas o están incompletas.`);
+}
+if (/<link rel="alternate"/.test(sitemap)) {
+  errors.push('sitemap.xml: contiene etiquetas HTML link en lugar de xhtml:link autocerradas.');
+}
 for (const [, englishSlug] of serviceRoutes) {
   if (!sitemap.includes(`<loc>${`https://adonaielectrical2026.github.io/en/services/${englishSlug}/`}</loc>`)) {
     errors.push(`sitemap.xml: falta la página inglesa ${englishSlug}.`);

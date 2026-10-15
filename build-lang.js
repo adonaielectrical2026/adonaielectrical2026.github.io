@@ -164,10 +164,7 @@ function build() {
   if (ogCopy[LANG]) {
     const c = ogCopy[LANG];
     html = html.replace(/<meta property="og:locale" content="[^"]*">/, `<meta property="og:locale" content="en_US">`);
-    html = html.replace(
-      /<meta property="og:locale:alternate" content="en_US">\s*\n\s*<meta property="og:locale:alternate" content="pt_BR">/,
-      '<meta property="og:locale:alternate" content="es_UY">\n  <meta property="og:locale:alternate" content="pt_BR">'
-    );
+    html = html.replace(/<meta property="og:locale:alternate" content="[^"]*">/, '<meta property="og:locale:alternate" content="es_UY">');
     html = html.replace(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${pageUrl}">`);
     html = html.replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${c.title}">`);
     html = html.replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${c.description}">`);
