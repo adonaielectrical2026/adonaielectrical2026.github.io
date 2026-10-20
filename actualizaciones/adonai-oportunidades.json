@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "url": "https://adonaielectrical2026.github.io/actualizaciones/ADONAI-Oportunidades-Windows.zip",
-  "sha256": "d231e69e3356e742190eca8c864eef1da7e7b18f31dba6b83d5fa621180ce2ff",
-  "notes": "Inicio con una sola ventana y zonas ampliadas desde las páginas detalladas de ARCE."
+  "sha256": "f62126d3d2f9bfc751c2320b22e0ce7d9acc7eba944b185e8ed9835a1fcd13d7",
+  "notes": "Informes diarios por correo, búsqueda automática, puntuación de coincidencia, vencimientos, palabras personalizadas, seguimiento, exportación a Excel y control de fuentes."
 }
