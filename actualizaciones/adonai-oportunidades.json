@@ -1,6 +1,6 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "url": "https://adonaielectrical2026.github.io/actualizaciones/ADONAI-Oportunidades-Windows.zip",
-  "sha256": "f62126d3d2f9bfc751c2320b22e0ce7d9acc7eba944b185e8ed9835a1fcd13d7",
-  "notes": "Informes diarios por correo, búsqueda automática, puntuación de coincidencia, vencimientos, palabras personalizadas, seguimiento, exportación a Excel y control de fuentes."
+  "sha256": "10595275c8555e683f2b4d0be159f0eec9bfe59725bd8b1eccc93e9f1f894be3",
+  "notes": "Corrección de inicio: se reparó la ruta nula de configuración detectada en la versión 1.2.0."
 }
