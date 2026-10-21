@@ -1,6 +1,6 @@
 {
-  "version": "1.2.1",
+  "version": "1.3.0",
   "url": "https://adonaielectrical2026.github.io/actualizaciones/ADONAI-Oportunidades-Windows.zip",
-  "sha256": "10595275c8555e683f2b4d0be159f0eec9bfe59725bd8b1eccc93e9f1f894be3",
-  "notes": "Corrección de inicio: se reparó la ruta nula de configuración detectada en la versión 1.2.0."
+  "sha256": "c32beec89ac5c547b33af400af0938d9df9be10909ae68ec3240c1c9fdacdf7c",
+  "notes": "Nueva versión: análisis de pliegos, alertas de vencimiento, calendario, seguimiento completo, copias de seguridad y consulta directa de ANTEL."
 }
