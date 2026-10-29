@@ -1,6 +1,6 @@
 {
-  "version": "1.3.0-compatible",
+  "version": "1.3.0-compatible.2",
   "url": "https://adonaielectrical2026.github.io/actualizaciones/ADONAI-Oportunidades-Instalador-Compatible.zip",
-  "sha256": "6ae469a4704e34286cca28c2e0102439bca14350a2d8263e9f0650311cbcb829",
-  "notes": "Instalación compatible sin ejecutable externo. Utiliza Windows PowerShell y crea los accesos directos de escritorio e Inicio."
+  "sha256": "34d0e4b54598845239c478a6697acafff0224c789d31d0192cc5d25949d7c8bd",
+  "notes": "Inicio corregido para Windows recientes: abre directamente con Windows PowerShell y no depende de VBScript. Incluye apertura con diagnóstico."
 }
