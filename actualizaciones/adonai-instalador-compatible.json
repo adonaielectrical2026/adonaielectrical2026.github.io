@@ -1,0 +1,6 @@
+{
+  "version": "1.3.0-compatible",
+  "url": "https://adonaielectrical2026.github.io/actualizaciones/ADONAI-Oportunidades-Instalador-Compatible.zip",
+  "sha256": "6ae469a4704e34286cca28c2e0102439bca14350a2d8263e9f0650311cbcb829",
+  "notes": "Instalación compatible sin ejecutable externo. Utiliza Windows PowerShell y crea los accesos directos de escritorio e Inicio."
+}
