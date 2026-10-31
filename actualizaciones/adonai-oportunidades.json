@@ -1,6 +1,6 @@
 {
-  "version": "1.3.1",
+  "version": "1.3.2",
   "url": "https://adonaielectrical2026.github.io/actualizaciones/ADONAI-Oportunidades-Windows.zip",
-  "sha256": "8e66e60a58db69cbaea7c14341df6e91555355acfc0e732c78ecbbf608ec5efe",
-  "notes": "Corrección de inicio: rutas protegidas, apertura directa con Windows PowerShell y paquete de actualización unificado."
+  "sha256": "3017b0c9ba3cbedc0c22c87b28e5ad11af49b997d67017df5f675f20f7a3bb08",
+  "notes": "Los registros antiguos se eliminan al iniciar y cada error nuevo identifica la versión y la carpeta ejecutada."
 }

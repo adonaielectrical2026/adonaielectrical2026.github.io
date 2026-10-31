@@ -1,6 +1,6 @@
 {
-  "version": "1.3.1-compatible.3",
+  "version": "1.3.2-compatible.4",
   "url": "https://adonaielectrical2026.github.io/actualizaciones/ADONAI-Oportunidades-Instalador-Compatible.zip",
-  "sha256": "48419f41b696b15ecccb010898ae04958881510ba1051943419b3a1e9b8068a4",
-  "notes": "Instalador compatible revisado: no depende de VBScript, evita rutas nulas e incluye apertura con diagnóstico."
+  "sha256": "217e34d4f5556ef7a59dd085a94142ce0d684301e5748f62662cd8530edff1b4",
+  "notes": "Instalador revisado: elimina registros de versiones antiguas e identifica claramente cualquier error nuevo."
 }
