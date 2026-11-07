@@ -679,12 +679,17 @@
       const navLinks = document.querySelectorAll('.nav-link');
       const brandLink = document.querySelector('.brand');
 
-      function setMenu(open) {
+      function setMenu(open, options = {}) {
+        if (!menuButton || !mainNav) return;
         menuButton.setAttribute('aria-expanded', String(open));
         menuButton.setAttribute('aria-label', translateLiteral(open ? 'Cerrar menú' : 'Abrir menú'));
         mainNav.classList.toggle('is-open', open);
         document.body.classList.toggle('menu-open', open);
-        if (open) mainNav.scrollTop = 0;
+        if (open) {
+          mainNav.scrollTop = 0;
+        } else if (options.restoreFocus) {
+          menuButton.focus();
+        }
       }
 
       window.addEventListener('adonai:languagechange', () => {
@@ -727,11 +732,13 @@
       });
 
       document.addEventListener('keydown', event => {
-        if (event.key === 'Escape') setMenu(false);
+        if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+          setMenu(false, { restoreFocus: true });
+        }
       });
 
       window.addEventListener('resize', () => {
-        if (window.innerWidth >= 940) setMenu(false);
+        if (window.innerWidth >= 1180) setMenu(false);
       });
 
       /* Scroll reveal animations */

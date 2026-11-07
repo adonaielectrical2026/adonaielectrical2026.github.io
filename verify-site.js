@@ -154,11 +154,21 @@ for (const [relativePath, language] of [['index.html', 'es'], ['en/index.html', 
 }
 
 const appSource = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+const stylesSource = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
 if (!appSource.includes('setTimeout(hidePreloader, 4000)')) {
   errors.push('Carga inicial: falta el respaldo de cuatro segundos para el indicador no bloqueante.');
 }
 if (appSource.includes('setTimeout(hidePreloader, 1500)')) {
   errors.push('Carga inicial: conserva el tiempo simulado anterior.');
+}
+if (!appSource.includes('window.innerWidth >= 1180')) {
+  errors.push('Navegación: el cierre automático no coincide con el nuevo ancho de escritorio.');
+}
+if (!stylesSource.includes('@media (min-width: 1180px)')) {
+  errors.push('Navegación: falta el punto de quiebre seguro para el menú horizontal.');
+}
+if (/\.js \.reveal\s*\{[^}]*opacity:\s*0\s*;/s.test(stylesSource)) {
+  errors.push('Animaciones: el contenido vuelve a quedar completamente invisible antes del scroll.');
 }
 
 const mailSource = fs.readFileSync(path.join(root, 'correo-automatico', 'Code.gs'), 'utf8');

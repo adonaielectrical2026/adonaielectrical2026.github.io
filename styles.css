@@ -1999,9 +1999,11 @@ html[data-theme="dark"] .preloader-bar-fill {
 }
 
 .js .reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 700ms ease, transform 700ms ease;
+  /* El contenido permanece legible aunque el observador de scroll no llegue a
+     ejecutarse (capturas de página completa, ahorro de batería o JS parcial). */
+  opacity: 0.92;
+  transform: translateY(16px);
+  transition: opacity 600ms ease, transform 600ms ease;
 }
 
 .js .reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -2043,7 +2045,7 @@ html[data-theme="dark"] .preloader-bar-fill {
   .payment-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-@media (min-width: 560px) and (max-width: 939px) {
+@media (min-width: 560px) and (max-width: 1179px) {
   .main-nav { width: min(74vw, 380px); }
 }
 
@@ -2056,45 +2058,6 @@ html[data-theme="dark"] .preloader-bar-fill {
 }
 
 @media (min-width: 940px) {
-  .menu-toggle { display: none; }
-
-  .main-nav {
-    position: static;
-    width: auto;
-    height: auto;
-    padding: 0;
-    overflow: visible;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    transform: none;
-    visibility: visible;
-  }
-
-  .nav-list { align-items: center; flex-direction: row; gap: 20px; }
-
-  .nav-link {
-    position: relative;
-    padding: 9px 0;
-    font-size: 0.9rem;
-  }
-
-  .nav-link::after {
-    position: absolute;
-    right: 0;
-    bottom: 2px;
-    left: 0;
-    height: 2px;
-    background: var(--black);
-    content: "";
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform var(--transition);
-  }
-
-  .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); transform-origin: left; }
-  .nav-cta { margin: 0 0 0 6px; }
-
   .hero-title { max-width: none; font-size: clamp(3.8rem, 6.2vw, 6.2rem); white-space: nowrap; }
   .hero-title > span:not(.hero-title__sub) { display: inline; margin-top: 0; }
   .hero-title__sub { white-space: normal; }
@@ -2145,6 +2108,51 @@ html[data-theme="dark"] .preloader-bar-fill {
   .hero-brand-watermark { right: 2%; width: min(34vw, 520px); opacity: 0.1; }
   .contact-grid { grid-template-columns: minmax(0, 0.9fr) minmax(440px, 1.1fr); align-items: start; gap: 52px; }
   .contact-form { padding: 32px; }
+}
+
+/* La navegación horizontal necesita más espacio que el resto del diseño de
+   escritorio. Hasta 1179 px se conserva el menú lateral para evitar choques
+   entre la marca, los enlaces y las herramientas del encabezado. */
+@media (min-width: 1180px) {
+  .menu-toggle { display: none; }
+
+  .main-nav {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    transform: none;
+    visibility: visible;
+  }
+
+  .nav-list { align-items: center; flex-direction: row; gap: 18px; }
+
+  .nav-link {
+    position: relative;
+    padding: 9px 0;
+    font-size: 0.88rem;
+  }
+
+  .nav-link::after {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    left: 0;
+    height: 2px;
+    background: var(--black);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after { transform: scaleX(1); transform-origin: left; }
+  .nav-cta { margin: 0 0 0 4px; }
 }
 
 /* Tablet vertical: portada más compacta. La vista horizontal se conserva. */
